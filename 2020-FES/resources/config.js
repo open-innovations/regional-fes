@@ -150,7 +150,7 @@ S(document).ready(function(){
 				}
 			},
 			"gridsupplypointsLAD":{
-				"title":"Grid Supply Points (with Countries)",
+				"title":"Grid Supply Points (with NUTS1 regions)",
 				"source": "primary",
 				"layers":[{
 					"id":"LADlayer",
