@@ -47,60 +47,7 @@
 		// Store the areas
 		this.addAreas(opt.areas||{});
 
-		var mapattr = {
-			'background': 'transparent',
-			'layers': [{
-				'id': 'outline',
-				'data': 'data/maps/uk.geojson',
-				'options': { 'color': '#fafaf8' }
-			},/*{
-				'id': 'aroads',
-				'data': 'data/maps/aroads.geojson',
-				'options': { 'color': '#e8e8e7','stroke-width':0.7 }
-			},*/{
-				'id': 'motorways',
-				'data': 'data/maps/motorway-simple.geojson',
-				'options': { 'color': '#e8e8e7', 'stroke-width': 1.2 }
-			},{
-				'id': 'labels',
-				'data': 'data/maps/places.tsv',
-				'options': { 'fill': '#4c5862', 'stroke': 'white', 'stroke-width': '0.7%', 'stroke-linejoin': 'round'  },
-				'type': 'text',
-				'process': function(d,map){
-					d = d.split(/[\r\n]+/);
-					var header,i,c,cols,num,locations,fs,f,loc,dlat,threshold;
-					header = d[0].split(/\t/);
-					locations = [];
-					fs = 1;
-					threshold = 100000;
-
-					for(i = 1; i < d.length; i++){
-						loc = {'type':'Feature','properties':{},'geometry':{'type':'Point','coordinates':[]}};
-						cols = d[i].split(/\t/);
-						for(c = 0; c < cols.length; c++){
-							num = parseFloat(cols[c]);
-							loc.properties[header[c]] = (isNaN(num) ? cols[c] : num);
-						}
-						loc.name = loc.properties.Name;
-						f = fs*0.75;
-						if(loc.properties.Population){
-							if(loc.properties.Population > 100000) f += fs*0.125;
-							if(loc.properties.Population > 250000) f += fs*0.125;
-							if(loc.properties.Population > 750000) loc.name = loc.name.toUpperCase();
-						}
-						loc.properties.fontsize = '14';
-						loc.geometry.coordinates = [loc.properties.Longitude,loc.properties.Latitude];
-						if(loc.properties.Population >= threshold) locations.push(loc);
-					}
-					this.data = {'features':locations};
-				}
-			}],
-			'complete': function(){
-				//console.log('complete',this,this.getLayerPos('data-layer'));
-				if(this.getLayerPos('data-layer') >= 0) this.zoomToData('data-layer');
-				else this.zoomToData('outline');
-			}
-		}
+		var mapattr = opt.map||{'background':'transparent'};
 		
 		this.maps = {}
 		this.mapdata = {};
@@ -403,7 +350,6 @@
 			}
 
 			if(ok){
-
 				if(!this.charts.combined){
 					document.getElementById('chart').innerHTML = '';
 					this.charts.combined = OI.linechart(document.getElementById('chart'),{
@@ -497,9 +443,7 @@
 					}
 				});
 			}
-
 		}
-
 
 		return this;
 	};
