@@ -28,12 +28,14 @@
 	.compare .head.comparison-b { text-align: right; }
 	.map { width: 100%; aspect-ratio: 1 / 1.8; max-height: 80vh; line-height: 0; padding: 1em; position: relative; }
 	.data-layer path:hover, .data-layer path.highlight { stroke-width: 2px!important; stroke-opacity: 1!important; cursor: pointer; }
+	.chart { position: relative; aspect-ratio: 1 / 0.7; }
 	#chart { height: 400px; max-height: 90vh; width: 100%; position: relative; }
 	#chart .linechart-tooltip { padding: 0.5em 1em; background: #454546; }
 	#chart .linechart-tooltip::after { border-top-color: #454546; }
 	#chart .linechart-series circle:focus { stroke: #454546; }
 	.warning { color: #9F6000; background-color: #FEEFB3; text-align:center; }
 	.padded { padding: 1.5em; }
+	.smallpadded { padding: 0.5em; }
 	</style>
 </head>
 <body>
@@ -71,7 +73,7 @@
 						<option value="">Select an area</option>
 					</select>
 				</div>
-				<div class="padded vs head"><span>vs</span></div>
+				<div class="smallpadded vs head"><span>vs</span></div>
 				<div class="comparison-b head">
 					<select id="scenario-b">
 						<option value="">Select a scenario</option>
@@ -97,12 +99,30 @@
 						</div>
 					</div>
 				</div>
+				<div class="padded comparison-a b5-bg">
+					<h2>Chart A</h2>
+					<p>This chart will be automatically scaled to maximise the data range. Hover over data points to see details.</p>
+					<div id="chart-a" class="chart">
+						<div class="spinner">
+							Waiting for <a href="#scenario-a">selection</a>...
+						</div>
+					</div>
+				</div>
+				<div class="padded comparison-b b5-bg">
+					<h2>Chart B</h2>
+					<p>This chart will be automatically scaled to maximise the data range. Hover over data points to see details.</p>
+					<div id="chart-b" class="chart">
+						<div class="spinner">
+							Waiting for <a href="#scenario-b">selection</a>...
+						</div>
+					</div>
+				</div>
 				<div class="padded comparison b5-bg">
 					<h2>Combined chart</h2>
-					<p>A multi-series line chart with the areas you have selected. Note that if you compare different parameters they will be shown on a common vertical scale.</p>
+					<p>This chart will show all the areas in Charts A and B on the same vertical scale.</p>
 					<div id="chart">
 						<div class="spinner">
-							A line chart will appear here once <a href="#scenario-a">selections</a> have been made above.
+							Waiting for <a href="#scenario-a">selections</a>...
 						</div>
 					</div>
 				</div>
@@ -116,14 +136,14 @@
         <div class="b2-bg" id="about">
             <div class="holder tallpadded">
                 <h2 class="footer-heading">About this visualisation</h2>
-                <p>These maps show electricity data from our <a href="https://www.nationalgrideso.com/future-energy/future-energy-scenarios">Future Energy Scenarios</a>. They show a subset of the data available in our regional breakdown of FES data file and are intended as a demonstrator to facilitate feedback. We plan to use this feedback to help us refine the visualisation of our data in the future.</p>
+                <p>This tool lets you compare electricity data from our <a href="https://www.nationalgrideso.com/future-energy/future-energy-scenarios">Future Energy Scenarios</a> side-by-side. They show a subset of the data available in our regional breakdown of FES data file and are intended as a demonstrator to facilitate feedback. We plan to use this feedback to help us refine the visualisation of our data in the future.</p>
                 <p>The demands shown are the typical demands that could be expected in each region at time of national system peak demand. Individually each region may experience higher demands as factors such as local weather conditions and local engagement with distributed energy resources impact demands at a local level throughout the year.</p>
                 <p>Transmission demands (such as large industrial customers connected directly to the transmission network) and transmission connected generation are omitted from this visualisation. The transmission demands are available to download from our <a href="https://data.nationalgrideso.com/future-energy-scenarios/regional-breakdown-of-fes-data-electricity/r/regional_breakdown_of_fes:_demand_(active_power)">data portal</a> whilst the transmission generation aggregated by fuel type are available in our FES data workbook.</p>
                 <p>If you have any comments, questions or feedback on our scenarios, please send them to <a href="mailto:FES@nationalgrideso.com?subject=FES electricity demand maps">FES@nationalgrideso.com</a>.</p>
                 <h3 class="footer-heading">Acknowledgements</h3>
                 <p>This visualisation would not be possible without the prior work of others. We are grateful to the following organisations for sharing data and code under an open licence that allowed for re-use.</p>
                 <ul>
-                    <li>Interactive visualisation: The underlying code and website layout. &copy; Open Innovations (Stuart Lowe &amp; Patrick Lake) 2020. Released under an MIT licence.</li>
+                    <li>Interactive visualisation: The underlying code and website layout &copy; Open Innovations 2020-2022 (MIT licence).</li>
                     <li>Underlying map: This uses <a href="https://geoportal.statistics.gov.uk/datasets/ons::countries-december-2021-uk-buc/explore">GB country boundaries from ONS</a> (OGLv3), <a href="data/maps/motorway-simple.geojson">simplified motorways</a> from <a href="http://www.openstreetmap.org/copyright">OpenStreetMap Contributors</a> (ODbL), and <a href="data/maps/places.tsv">place names</a> from the <a href="http://download.geonames.org/export/dump/readme.txt">GeoNames Gazetteer</a> (CC-BY-4.0)</li>
                     <li>Overlaid boundaries: NUTS1 boundaries are from the ONS geo service. They are released under the OGL (Contains National Statistics data &copy; Crown copyright and database right 2019, Contains OS data &copy; Crown copyright and database right 2019)</li>
                 </ul>

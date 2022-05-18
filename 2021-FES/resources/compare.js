@@ -17,6 +17,7 @@
 		this.values = {};
 		this.lookup = {};
 		this.series = {};
+		this.charts = {};
 
 		// Get dropdowns
 		this.input = {
@@ -251,7 +252,7 @@
 
 	// Should we process the loaded data?
 	Compare.prototype.initData = function(c){
-		var ok,val,a,p,r,v;
+		var ok,val,a,p,r,v,ch;
 		var origc = c;
 		var series = {};
 		ok = true;
@@ -346,20 +347,11 @@
 						}
 					}
 				}
-			}
-		}
-		if(ok){
-			console.info('Loaded all data');
-			ok = true;
-			for(c in this.input){
-				if(!this.values[c].area) ok = false;
-			}
 
-			if(ok){
-
-				if(!this.chart){
-					document.getElementById('chart').innerHTML = '';
-					this.chart = OI.linechart(document.getElementById('chart'),{
+				if(!this.charts[c]){
+					ch = document.getElementById('chart-'+c);
+					ch.innerHTML = '';
+					this.charts[c] = OI.linechart(ch,{
 						'left':30,
 						'right':20,
 						'top':10,
@@ -380,14 +372,69 @@
 							}
 						}
 					});
-				}else this.chart.clear();
+				}else this.charts[c].clear();
+				
+				if(this.series[c]){
+					// Now add the data series
+					for(s = 0; s < this.series[c].length; s++){
+						console.log('addSeries',c,this.series[c][s],this.series[c][s].id,this.areas[this.lookup[this.series[c][s].id]].colour);
+						colour = '#000000';
+						if(this.lookup[this.series[c][s].id] && this.areas[this.lookup[this.series[c][s].id]]) colour = this.areas[this.lookup[this.series[c][s].id]].colour;
+						this.charts[c].addSeries(this.series[c][s].data,{
+							'points':{ 'size':4, 'color': colour },
+							'line':{'color': colour },
+							'title': this.series[c][s].title,
+							'tooltip':{
+								'label': function(d){
+									return ''+d.series.title+'\n'+d.data.x+': '+d.data.y.toFixed(d.data.dp)+' '+d.data.units;
+								}
+							}
+						});
+					}
+					this.charts[c].draw();
+				}
+			}
+		}
+		if(ok){
+			console.info('Loaded all data');
+			ok = true;
+			for(c in this.input){
+				if(!this.values[c].area) ok = false;
+			}
+
+			if(ok){
+
+				if(!this.charts.combined){
+					document.getElementById('chart').innerHTML = '';
+					this.charts.combined = OI.linechart(document.getElementById('chart'),{
+						'left':30,
+						'right':20,
+						'top':10,
+						'bottom':50,
+						'axis':{
+							'x':{
+								'title': { 'label': 'Year' },
+								'labels':{
+									"2020": {'label':2020},
+									"2030": {'label':2030},
+									"2040": {'label':2040},
+									"2050": {'label':2050}
+								}
+							},
+							'y':{
+								'min': 0,
+								'title':{ 'label':'' }
+							}
+						}
+					});
+				}else this.charts.combined.clear();
 				
 				for(c in this.input){
 					for(s = 0; s < this.series[c].length; s++){
 						console.log('addSeries',c,this.series[c][s],this.series[c][s].id,this.areas[this.lookup[this.series[c][s].id]].colour);
 						colour = '#000000';
 						if(this.lookup[this.series[c][s].id] && this.areas[this.lookup[this.series[c][s].id]]) colour = this.areas[this.lookup[this.series[c][s].id]].colour;
-						this.chart.addSeries(this.series[c][s].data,{
+						this.charts.combined.addSeries(this.series[c][s].data,{
 							'points':{ 'size':4, 'color': colour },
 							'line':{'color': colour },
 							'title': this.series[c][s].title,
@@ -399,7 +446,7 @@
 						});
 					}
 				}
-				this.chart.draw();
+				this.charts.combined.draw();
 			}
 		}
 

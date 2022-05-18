@@ -1,5 +1,5 @@
 /**
-	Open Innovations Simple SVG Map v 1.0
+	Open Innovations Basic SVG-based Map v 1.0.1
 **/
 (function(root){
 	// Part of the OI namespace
@@ -33,7 +33,6 @@
 		setAttr(this.container,{'style':'overflow:hidden'});
 
 		var o = oSize(el);
-
 		this.w = (attr.w || o.width);
 		this.h = (attr.h || o.height);
 		this.attr = attr;
@@ -41,7 +40,6 @@
 		// Add the SVG
 		this.svg = svgEl('svg');
 		setAttr(this.svg,{'class':'map-inner','xmlns':xmlns,'version':'1.1','width':this.w,'height':this.h,'viewBox':'-180 0 360 180','overflow':'visible','style':'max-width:100%;max-height:100%;background:'+(attr.background||"white"),'preserveAspectRatio':'xMidYMid meet'});
-		
 		el.appendChild(this.svg);
 
 		this.layers = [];
@@ -100,14 +98,13 @@
 			for(var i = 0; i < this.layers.length; i++){
 				if(this.layers[i].id==l) return i;
 			}
-			// No matches
-			return -1;
+			return -1;	// No matches
 		}
 		return l;
 	};
 	BasicMap.prototype.removeLayer = function(l){
 		// Get the index of the layer
-		i = this.getLayerPos(l);
+		var i = this.getLayerPos(l);
 		if(i >= 0 && i < this.layers.length){
 			// Remove SVG content for this layer
 			this.layers[i].clear();
@@ -121,7 +118,6 @@
 	BasicMap.prototype.setBounds = function(bbox){
 
 		this.bounds = bbox;
-
 		var tileBox = bbox.asTile(this.zoom);
 
 		// Set the view box
@@ -137,7 +133,7 @@
 			for(i = 0; i < tspans.length; i++) tspans[i].style.fontSize = pc+'%';
 
 			// Remove overlapping labels on a last-in-first-out basis.
-			for(var i = svgLabels.length-1 ; i >= 0; i--){
+			for(i = svgLabels.length-1 ; i >= 0; i--){
 				lbla = svgLabels[i];
 				lbla.style.display = '';
 				a = lbla.getBoundingClientRect();
@@ -196,9 +192,9 @@
 		if(typeof this.options.useforboundscalc==="undefined") this.options.useforboundscalc = true;
 
 		var g = svgEl('g');
+		var gs;
 		setAttr(g,{'class':this.class||this.id});
 
-		
 		if(map && map.svg){
 			if(typeof i==="number"){
 				gs = map.svg.querySelectorAll('g');
@@ -208,10 +204,7 @@
 			}
 		}
 
-		this.clear = function(){
-			g.innerHTML = '';
-			return this;
-		}
+		this.clear = function(){ g.innerHTML = ''; return this; };
 
 		// Function to draw it on the map
 		this.update = function(){
@@ -366,56 +359,49 @@
 		};
 		return this;
 	}
-	
+
+	// Map maths for the Web Mercator projection (like Open Street Map) e.g. https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames
 	var d2r = Math.PI/180;
-	// scale tile by Math.pow(2,zoom)
 	function lon2tile(lon,zoom){ return ((lon+180)/360)*Math.pow(2,zoom); }
 	function lat2tile(lat,zoom){ return ((1-Math.log(Math.tan(lat*d2r) + 1/Math.cos(lat*d2r))/Math.PI)/2)*Math.pow(2,zoom); }
 	function latlon2xy(lat,lon,zoom){ return {'x':lon2tile(lon,zoom),'y':lat2tile(lat,zoom)}; }
-	
+
+	// Export the function
 	OI.BasicMap = function(el,attr){ return new BasicMap(el,attr); };
 
+	// Make a tiny file loading manager so that we don't make multiple requests for the same large files
 	var files = {};
-
 	function fetchFile(file,attr,fn){
 		if(!file) return;
 		if(!attr) attr = {};
 		if(!attr.type) attr.type = "text";
-		
-		if(!files[file]){
-			files[file] = {'status':'','callbacks':[]};
-		}
+		if(!files[file]) files[file] = {'status':'','callbacks':[]};
 		files[file].callbacks.push({'attr':attr,'fn':fn});
 
 		// The contents of this file have already been fetched.
 		if(files[file].status == 'loaded'){
 			return files[file].data;
 		}else if(files[file].status == ''){
-
 			files[file].status = 'loading';
 			console.info('Downloading '+file);
+
 			// Fetch the HTML code of this file.
 			fetch(file).then(response => {
-
 				if(!response.ok) throw new Error('Network response was not OK');
 				return (attr.type=="json" ? response.json() : response.text());
-
 			}).then(function (data) {
-
 				// Save the HTML code of this file in the files array,
 				// so we won't need to fetch it again.
 				files[file].status = 'loaded';
 				files[file].data = data;
-
+				// Run any callbacks attached to this file
 				for(var c = 0; c < files[file].callbacks.length; c++){
 					if(typeof files[file].callbacks[c].fn==="function") files[file].callbacks[c].fn.call(files[file].callbacks[c].attr.this||this,data);
 				}
-
 			}).catch(error => {
 				console.error('Unable to load the file '+file,error);
 			});
 		}
 	}
 	root.OI = OI;
-	
 })(window || this);
