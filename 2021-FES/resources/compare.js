@@ -413,6 +413,7 @@
 							}
 						}
 					});
+					this.charts[c].on('click',{this:this,'c':c},function(e,a){ this.sliders[e.c].noUiSlider.set(this.yearrange.min+e.i); });
 				}else this.charts[c].clear();
 				
 				if(this.series[c]){

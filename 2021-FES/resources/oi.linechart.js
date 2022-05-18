@@ -1,6 +1,6 @@
 /**
 	Open Innovations line charts in SVG
-	Version 0.4.6
+	Version 0.4.7
   */
 (function(root){
 	// Part of the OI namespace
@@ -89,6 +89,9 @@
 				merge(a,props);
 				cb.call(a['this']||this,a);
 			}
+		}
+		function onClick(e,i){
+			if(fo && events.click) events.click.trigger({'i':i});
 		}
 		function showTooltip(e,s,i,d,tt){
 			var txt,tip,c,bb,bbo;
@@ -347,6 +350,11 @@
 							pt.addEventListener('mouseover',function(e){ e.target.focus(); });
 							pt.addEventListener('focus',ptooltip);
 						}
+						pt.addEventListener('click',function(e){
+							var i = parseInt(e.target.getAttribute('data-i'));
+							if(data[i]) onClick(e.target,i);
+							else console.error('Bad click '+i,e);
+						});
 						add(pt,this.el);
 						// Add animations
 						pts[i].c = new Animate(pts[i].el);
