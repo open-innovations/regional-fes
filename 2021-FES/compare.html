@@ -20,6 +20,8 @@
 	}
 	.compare .title { background: #b04a2a; color: white; }
 	.compare .title h2 { color: inherit; margin: 0; }
+	.compare h2 { font-size: 1.2em; }
+	.compare h3 { font-size: 1em; }
 	.compare select { margin-bottom: 0.25em; border-radius: 2px; }
 	.compare .vs { grid-column: 2 / span 2; position: relative; display: grid; align-items:center; font-size: 1.4em; background: white; }
 	.compare .comparison-a { grid-column: 1; }
@@ -31,15 +33,18 @@
 	.map { width: 100%; aspect-ratio: 1 / 1.8; max-height: 80vh; line-height: 0; padding: 1em; position: relative; }
 	.data-layer path:hover, .data-layer path.highlight { stroke-width: 2px!important; stroke-opacity: 1!important; cursor: pointer; }
 	.chart { position: relative; aspect-ratio: 1 / 0.7; }
+	.chart .linechart-series circle.highlight { stroke-width: 3px; stroke: #000000; }
 	#chart { height: 400px; max-height: 90vh; width: 100%; position: relative; }
 	#chart .linechart-tooltip { padding: 0.5em 1em; background: #454546; }
 	#chart .linechart-tooltip::after { border-top-color: #454546; }
-	#chart .linechart-series circle:focus { stroke: #454546; }
+	#chart .linechart-series circle:focus, .linechart-series circle.highlight { stroke: #454546; }
 	.warning { color: #9F6000; background-color: #FEEFB3; text-align:center; }
 	.padded { padding: 1.5em; }
 	.smallpadded { padding: 0.5em; }
 	.sticky { position: sticky!important; top: 0; z-index: 1001; }
 	.sticky.title { box-shadow: 0 2px 2px 0px rgba(0,0,0,0.2); }
+	.slider { margin: 1em 1em 2em 1em; padding: 0px; }
+	.slider .noUi-pips-horizontal { padding: 2px 0 10px 0; }
 	</style>
 </head>
 <body>
@@ -63,14 +68,13 @@
     </header>
     <div class="b6-bg">
 		<div class="holder tallpadded">
-		
 			<p>Welcome to the experimental comparison tool. This will let you compare two sets of selections side-by-side. You must select a combination of scenario, parameter, and geographic areas of interest (e.g. GB, nations, and regions). You will then get maps and charts for each selection below.</p>
 			<div class="compare">
-				<div class="padded comparison-a title sticky">
+				<div class="smallpadded comparison-a title sticky">
 					<h2 style="text-align:center;">A</h2>
 				</div>
 				<div class="smallpadded vs head sticky"><span>vs</span></div>
-				<div class="padded comparison-b title sticky">
+				<div class="smallpadded comparison-b title sticky">
 					<h2 style="text-align:center;">B</h2>
 				</div>
 				<div class="comparison-a head">
@@ -101,6 +105,8 @@
 							<svg width="64" height="64" version="1.1" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.11601 0 0 .11601 -49.537 -39.959)"><path d="m610.92 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.83333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.6666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.5s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1346.5 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.3333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.1666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="0s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path></g></svg>
 						</div>
 					</div>
+					<h3>Select year (<span class="year-a"></span>):</h3>
+					<div id="slider-a" class="slider"></div>
 				</div>
 				<div class="padded comparison-b b5-bg">
 					<div id="map-b" class="map">
@@ -108,6 +114,8 @@
 							<svg width="64" height="64" version="1.1" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.11601 0 0 .11601 -49.537 -39.959)"><path d="m610.92 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.83333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.6666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 577.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.5s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1346.5 896.12m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.3333s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m1162.6 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="-0.1666s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path><path d="m794.82 1214.6m183.9-106.17-183.9-106.17-183.9 106.17v212.35l183.9 106.17 183.9-106.17z"><animate attributeName="opacity" begin="0s" dur="1s" keyTimes="0;0.7;1" repeatCount="indefinite" values="1;0;0"/></path></g></svg>
 						</div>
 					</div>
+					<h3>Select year (<span class="year-b"></span>):</h3>
+					<div id="slider-b" class="slider"></div>
 				</div>
 				<div class="padded comparison-a b5-bg">
 					<h2>Chart A</h2>
@@ -183,7 +191,7 @@
 	<script>
 	var compare;
 	OI.ready(function(){
-		compare = new Compare({
+		compare = Compare({
 			'areas': {
 				'GB (total)':{'areas':'UKC+UKD+UKE+UKF+UKG+UKH+UKI+UKJ+UKK+UKL+UKM','colour':'#E6007C'},
 				'GB (regions)':{'areas':'UKC;UKD;UKE;UKF;UKG;UKH;UKI;UKJ;UKK;UKL;UKM'},
@@ -257,8 +265,6 @@
 			}
 		});
 	});
-	
-
 	</script>
 </body>
 </html>

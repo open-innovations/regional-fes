@@ -18,6 +18,8 @@
 		this.lookup = {};
 		this.series = {};
 		this.charts = {};
+		this.sliders = {};
+		this.years = {};
 
 		// Get dropdowns
 		this.input = {
@@ -59,9 +61,44 @@
 		this.getJSON("data/gridsupplypoints2nuts1.json", this.addSplits );
 		this.getJSON("data/maps/nuts1_BUC_4326.geojson", this.addMap );
 
+		// Add year sliders
+		this.yearrange = { min: 2020, max: 2050 };
+		function addSlider(c,el,_obj){
+			noUiSlider.create(el, {
+				range: _obj.yearrange,
+				start: [2022],
+				step: 1,
+				pips: {mode: 'values', values: [2020,2030,2040,2050]}
+			});
+			// Bind the changing function to the update event.
+			el.noUiSlider.on('update',function(){ _obj.setYear(c,parseInt(this.get())); });
+			return el;
+		}
+		// Create the sliders
+		for(c in this.input) this.sliders[c] = addSlider(c,document.getElementById('slider-'+c),this);
+
 		return this;
 	}
-
+	Compare.prototype.setYear = function(c,y){
+		if(typeof y!=="number") y = parseInt(this.sliders[c].noUiSlider.get());
+		this.years[c] = y;
+		this.updateMap(c);
+		var els = document.querySelectorAll('.year-'+c);
+		for(var i = 0; i < els.length; i++) els[i].innerHTML = y;
+		this.updateYearHighlights(c,y);
+		return this;
+	};
+	Compare.prototype.updateYearHighlights = function(c,y){
+		if(this.sliders[c]){
+			// Remove any existing highlights
+			var els = this.charts[c].el.querySelectorAll('circle.highlight');
+			for(i = 0; i < els.length; i++) els[i].classList.remove('highlight');
+			// Add highlights to nth circles in each series
+			var dots = this.charts[c].el.querySelectorAll('g.linechart-series circle:nth-of-type('+(y-this.yearrange.min+1)+')');
+			for(i = 0; i < dots.length; i++) dots[i].classList.add('highlight');
+		}
+		return this;
+	};
 	Compare.prototype.update = function(c){
 		var s,sel;
 		
@@ -244,6 +281,62 @@
 			console.info('Loaded data',c,this.data[c],this.series);
 		}
 		
+		this.updateCharts();
+		this.updateMap(origc);
+
+		return this;
+	};
+	Compare.prototype.updateMap = function(c){
+		if(this.data[c] && this.maps[c] && this.values[c].area && this.mapgeojson){
+
+			// Remove any existing data layer
+			this.maps[c].removeLayer('data-layer');
+
+			// Limit original geojson file to just the areas we want
+			var s,d,min,max,geo;
+			geo = {'features':[]};
+			min = 1e100;
+			max = -1e100;
+			for(s = 0; s < this.series[c].length; s++){
+				areas = this.series[c][s].id.split(/\+/g);
+				for(a = 0; a < areas.length; a++){
+					for(g = 0; g < this.mapgeojson.features.length; g++){
+						if(this.mapgeojson.features[g].properties.nuts118cd == areas[a]){
+							geo.features.push(this.mapgeojson.features[g]);
+						}
+					}
+				}
+				for(d = 0; d < this.series[c][s].data.length; d++){
+					min = Math.min(min,this.series[c][s].data[d].y);
+					max = Math.max(max,this.series[c][s].data[d].y);
+				}
+			}
+
+			this.maps[c].addLayersBefore('labels',{
+				'id': 'data-layer',
+				'data': geo,
+				'options': { 'color': 'green' },
+				'values': { 'compare': this, 'year': this.years[c], 'column': c, 'key': 'nuts118cd', 'min':min, 'max': max, 'data': this.mapdata[c], 'colour': this.scenarios[this.values[c].scenario].color },
+				'style': function(feature,el){
+					var v,code,r,op;
+					v = this.attr.values;
+					code = feature.properties[v.key];
+					r = v.compare.lookup[code];
+					op = 0.1 + 0.8*(v.data[code][v.year]-v.min)/(v.max-v.min);
+					//console.log('style',feature,code,el,r,v.compare.areas[r].colour,v.data[code][v.year],v.min,v.max,op,v.compare,v);
+					el.style.fillOpacity = op;
+					el.style.fill = v.colour; //v.compare.areas[r].colour;
+					el.style.stroke = v.colour; //v.compare.areas[r].colour;
+					el.style['stroke-width'] = 2;
+					el.style['stroke-opacity'] = 0.1;
+				}
+			});
+		}
+		return this;
+	};
+	Compare.prototype.updateCharts = function(){
+		var c,ok,series,p,s,i,y,v,a,ch;
+		ok = true;
 		for(c in this.input){
 			if(!this.data[c]){
 				ok = false;
@@ -265,7 +358,7 @@
 							// If this column is a number
 							if(!isNaN(y)){
 
-								var v = {'val':0,'n':0};
+								v = {'val':0,'n':0};
 
 								// Loop over the areas that we need to combine
 								for(a = 0; a < this.series[c][i].areas.length; a++){
@@ -299,7 +392,7 @@
 					ch = document.getElementById('chart-'+c);
 					ch.innerHTML = '';
 					this.charts[c] = OI.linechart(ch,{
-						'left':30,
+						'left':16,
 						'right':20,
 						'top':10,
 						'bottom':50,
@@ -324,7 +417,6 @@
 				if(this.series[c]){
 					// Now add the data series
 					for(s = 0; s < this.series[c].length; s++){
-						console.log('addSeries',c,this.series[c][s],this.series[c][s].id,this.areas[this.lookup[this.series[c][s].id]].colour);
 						colour = '#000000';
 						if(this.lookup[this.series[c][s].id] && this.areas[this.lookup[this.series[c][s].id]]) colour = this.areas[this.lookup[this.series[c][s].id]].colour;
 						this.charts[c].addSeries(this.series[c][s].data,{
@@ -340,6 +432,8 @@
 					}
 					this.charts[c].draw();
 				}
+				// Update the year highlights
+				if(this.sliders[c]) this.updateYearHighlights(c,parseInt(this.sliders[c].noUiSlider.get()));
 			}
 		}
 		if(ok){
@@ -377,7 +471,6 @@
 				
 				for(c in this.input){
 					for(s = 0; s < this.series[c].length; s++){
-						console.log('addSeries',c,this.series[c][s],this.series[c][s].id,this.areas[this.lookup[this.series[c][s].id]].colour);
 						colour = '#000000';
 						if(this.lookup[this.series[c][s].id] && this.areas[this.lookup[this.series[c][s].id]]) colour = this.areas[this.lookup[this.series[c][s].id]].colour;
 						this.charts.combined.addSeries(this.series[c][s].data,{
@@ -393,55 +486,6 @@
 					}
 				}
 				this.charts.combined.draw();
-			}
-		}
-
-		c = origc;
-		if(this.data[c]){
-			// Maps
-			if(this.maps[c] && this.values[c].area && this.mapgeojson){
-
-				// Remove any existing data layer
-				this.maps[c].removeLayer('data-layer');
-
-				// Limit original geojson file to just the areas we want
-				var geojson = {'features':[]};
-				var s,d,min,max;
-				min = 1e100;
-				max = -1e100;
-				for(s = 0; s < this.series[c].length; s++){
-					areas = this.series[c][s].id.split(/\+/g);
-					for(a = 0; a < areas.length; a++){
-						for(g = 0; g < this.mapgeojson.features.length; g++){
-							if(this.mapgeojson.features[g].properties.nuts118cd == areas[a]){
-								geojson.features.push(this.mapgeojson.features[g]);
-							}
-						}
-					}
-					for(d = 0; d < this.series[c][s].data.length; d++){
-						min = Math.min(min,this.series[c][s].data[d].y);
-						max = Math.max(max,this.series[c][s].data[d].y);
-					}
-				}
-
-				this.maps[c].addLayersBefore('labels',{
-					'id': 'data-layer',
-					'data': geojson,
-					'options': { 'color': 'green' },
-					'values': { 'compare': this, 'column': c, 'key': 'nuts118cd', 'min':min, 'max': max, 'data': this.mapdata[c], 'colour': this.scenarios[this.values[c].scenario].color },
-					'style': function(feature,el){
-						var v = this.attr.values;
-						var code = feature.properties[v.key];
-						var r = v.compare.lookup[code];
-						var op = 0.1 + 0.8*(v.data[code]['2030']-v.min)/(v.max-v.min);
-						console.log('style',feature,code,el,r,v.compare.areas[r].colour,v.data[code]['2020'],v.min,v.max,op,v.compare,v);
-						el.style.fillOpacity = op;
-						el.style.fill = v.colour; //v.compare.areas[r].colour;
-						el.style.stroke = v.colour; //v.compare.areas[r].colour;
-						el.style['stroke-width'] = 2;
-						el.style['stroke-opacity'] = 0.1;
-					}
-				});
 			}
 		}
 
@@ -467,7 +511,7 @@
 		}
 		return data;
 	}
-	root.Compare = Compare;
+	root.Compare = function(opt){ return new Compare(opt); };
 
 	root.OI = OI;
 	
