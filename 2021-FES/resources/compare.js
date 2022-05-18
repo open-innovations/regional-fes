@@ -10,7 +10,7 @@
 	}
 
 	function Compare(opt){
-		var c,_obj,s;
+		var c,_obj,s,btn;
 		this.version = "0.1";
 		this.options = opt||{};
 		this.data = {};
@@ -77,6 +77,17 @@
 		// Create the sliders
 		for(c in this.input) this.sliders[c] = addSlider(c,document.getElementById('slider-'+c),this);
 
+		function makeDownload(filename,btn,src){
+			if(btn) btn.addEventListener('click',function(e){ saveToFile(src.innerHTML,filename,'image/svg+xml'); });
+			else console.warn('No button to attach src to.',src);
+		}
+		// Add download buttons
+		for(c in this.input){
+			makeDownload('map.svg',document.getElementById('download-map-'+c),document.getElementById('map-'+c));
+			makeDownload('chart.svg',document.getElementById('download-chart-'+c),document.getElementById('chart-'+c));
+		}
+	
+		makeDownload('chart-combined.svg',document.getElementById('download-chart'),document.getElementById('chart'));
 		return this;
 	}
 	Compare.prototype.setYear = function(c,y){
@@ -350,7 +361,7 @@
 					this.series[c] = new Array(series.length);
 					
 					for(i = 0; i < series.length; i++){
-						this.series[c][i] = {'orig':series[i],'areas':series[i].split(/\+/g),'data':[],'title':(s + '<br />'+this.parameters[p].title + '<br />' + this.lookup[series[i]]),'id':series[i]};
+						this.series[c][i] = {'orig':series[i],'areas':series[i].split(/\+/g),'data':[],'title':(s + '\n'+this.parameters[p].title + '\n' + this.lookup[series[i]]),'id':series[i]};
 						//for(y in this.data[c]
 						this.mapdata[c][this.series[c][i].areas[0]] = {};
 						for(y in this.data[c][this.series[c][i].areas[0]]){
@@ -513,6 +524,31 @@
 			data[i] = d;
 		}
 		return data;
+	}
+
+	function saveToFile(txt,fileNameToSaveAs,mime){
+		// Bail out if there is no Blob function
+		if(typeof Blob!=="function") return this;
+
+		var textFileAsBlob = new Blob([txt], {type:(mime||'text/plain')});
+
+		function destroyClickedElement(event){ document.body.removeChild(event.target); }
+
+		var dl = document.createElement("a");
+		dl.download = fileNameToSaveAs;
+		dl.innerHTML = "Download File";
+
+		if(window.webkitURL != null){
+			// Chrome allows the link to be clicked without actually adding it to the DOM.
+			dl.href = window.webkitURL.createObjectURL(textFileAsBlob);
+		}else{
+			// Firefox requires the link to be added to the DOM before it can be clicked.
+			dl.href = window.URL.createObjectURL(textFileAsBlob);
+			dl.onclick = destroyClickedElement;
+			dl.style.display = "none";
+			document.body.appendChild(dl);
+		}
+		dl.click();
 	}
 	root.Compare = function(opt){ return new Compare(opt); };
 
