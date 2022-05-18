@@ -7,6 +7,9 @@ The [Local Authority Districts](https://geoportal.statistics.gov.uk/datasets/loc
 * Contains National Statistics data © Crown copyright and database right 2019
 * Contains OS data © Crown copyright and database right 2019
 
+The [motorway network](motorway-simple.geojson) is from Open Street Map Contributors (ODbL). The [grid supply points](gridsupplypoints-unique-all.geojson) are from National Grid ESO. Place names come from the [GeoNames Gazetteer](http://download.geonames.org/export/dump/readme.txt) (CC-BY-4.0).
+
+
 
 We have to convert from Output Area (2011) to Local Authority District (2019) using [data from the ONS](https://geoportal.statistics.gov.uk/datasets/postcode-to-output-area-to-lower-layer-super-output-area-to-middle-layer-super-output-area-to-local-authority-district-august-2019-lookup-in-the-uk).
 
