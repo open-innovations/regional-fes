@@ -21,9 +21,9 @@
 	.compare .title { background: #b04a2a; color: white; }
 	.compare .title h2 { color: inherit; margin: 0; }
 	.compare select { margin-bottom: 0.25em; border-radius: 2px; }
-	.compare .vs { grid-column: 2 / span 2; position: relative; display: grid; align-items:center; font-size: 1.4em; }
-	.compare .comparison-a { grid-column: 1; border-radius: 2px; }
-	.compare .comparison-b { grid-column: 4; border-radius: 2px; }
+	.compare .vs { grid-column: 2 / span 2; position: relative; display: grid; align-items:center; font-size: 1.4em; background: white; }
+	.compare .comparison-a { grid-column: 1; }
+	.compare .comparison-b { grid-column: 4; }
 	.compare .comparison { grid-column: 1 / span 4; }
 	.compare .head.comparison-1 { text-align: left; }
 	.compare .head.vs { text-align: center; font-style:italic; font-family: serif; }
@@ -38,6 +38,8 @@
 	.warning { color: #9F6000; background-color: #FEEFB3; text-align:center; }
 	.padded { padding: 1.5em; }
 	.smallpadded { padding: 0.5em; }
+	.sticky { position: sticky!important; top: 0; z-index: 1001; }
+	.sticky.title { box-shadow: 0 2px 2px 0px rgba(0,0,0,0.2); }
 	</style>
 </head>
 <body>
@@ -64,11 +66,11 @@
 		
 			<p>Welcome to the experimental comparison tool. This will let you compare two sets of selections side-by-side. You must select a combination of scenario, parameter, and geographic areas of interest (e.g. GB, nations, and regions). You will then get maps and charts for each selection below.</p>
 			<div class="compare">
-				<div class="padded comparison-a title">
+				<div class="padded comparison-a title sticky">
 					<h2 style="text-align:center;">A</h2>
 				</div>
-				<div class="smallpadded vs head"><span>vs</span></div>
-				<div class="padded comparison-b title">
+				<div class="smallpadded vs head sticky"><span>vs</span></div>
+				<div class="padded comparison-b title sticky">
 					<h2 style="text-align:center;">B</h2>
 				</div>
 				<div class="comparison-a head">
@@ -127,7 +129,7 @@
 				</div>
 				<div class="padded comparison b5-bg">
 					<h2>Combined chart</h2>
-					<p>This chart will show all the areas in Charts A and B on the same vertical scale.</p>
+					<p>This chart will show all the areas in Charts A (solid lines) and B (dashed lines) on the same vertical scale.</p>
 					<div id="chart">
 						<div class="spinner">
 							Waiting for <a href="#scenario-a">selections</a>...
