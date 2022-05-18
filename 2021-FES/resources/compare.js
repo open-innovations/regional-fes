@@ -407,6 +407,7 @@
 								}
 							},
 							'y':{
+								'line': {'show':false},
 								'min': 0,
 								'title':{ 'label':'' }
 							}
@@ -462,6 +463,7 @@
 								}
 							},
 							'y':{
+								'line': {'show':false},
 								'min': 0,
 								'title':{ 'label':'' }
 							}
