@@ -434,7 +434,7 @@
 						if(this.lookup[this.series[c][s].id] && this.areas[this.lookup[this.series[c][s].id]]) colour = this.areas[this.lookup[this.series[c][s].id]].colour;
 						this.charts[c].addSeries(this.series[c][s].data,{
 							'points':{ 'size':4, 'color': colour },
-							'line':{'color': colour },
+							'line':{'color': colour,'stroke-dasharray': (c == "a" ? '' : '5,5')},
 							'title': this.series[c][s].title,
 							'tooltip':{
 								'label': function(d){

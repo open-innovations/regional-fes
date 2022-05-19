@@ -96,7 +96,7 @@ S(document).ready(function(){
 
 									frac = this.mapping.gsp.NUTSlayer.data[p][attr.id]*v;
 									fracOther = v - frac;
-									data.push([p,[v,p+'<br />Total: %VALUE%<br />'+(this.mapping.gsp.NUTSlayer.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+nuts118nm,frac,fracOther]]);
+									data.push([p,[v,p+'\nTotal: %VALUE%\n'+(this.mapping.gsp.NUTSlayer.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+nuts118nm,frac,fracOther]]);
 								}
 							}
 
