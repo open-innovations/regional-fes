@@ -63,7 +63,7 @@ S(document).ready(function(){
 						// Add first pane
 						popup += '<div class="pane"><span class="tab-title">Cumulative</span><div id="barchart-cumulative-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Year ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">Totals calculated by summing the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
 						// Add second pane (initially hidden to make sure popup placement isn't affected)
-						popup += '<div class="pane" style="display:none;"><span class="tab-title">Actuals</span><div id="barchart-actuals-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Year ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">The year-to-year differences ('+this.options.years.min+'=0) for the sums of the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
+						popup += '<div class="pane" style="display:none;"><span class="tab-title">Actuals</span><div id="barchart-actuals-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Year ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">The year-to-year differences for the sums of the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
 						popup += '</div>';
 						title = (attr.properties.nuts118nm||'?');
 						value = '<strong>'+attr.parameter.title+'</strong> ';
@@ -96,9 +96,11 @@ S(document).ready(function(){
 								if(c >= this.options.years.min && c <= this.options.years.max){
 									panels.cumulative.data.push([c,values[attr.id][c]]);
 									panels.cumulative.popup.push({'year':c,'value':values[attr.id][c]});
-									actual = (typeof values[attr.id][c-1]==="number" ? values[attr.id][c]-values[attr.id][c-1] : 0)
-									panels.actuals.data.push([c,actual]);
-									panels.actuals.popup.push({'year':c,'value':actual});
+									if(c > this.options.years.min){
+										actual = (typeof values[attr.id][c-1]==="number" ? values[attr.id][c]-values[attr.id][c-1] : 0)
+										panels.actuals.data.push([c,actual]);
+										panels.actuals.popup.push({'year':(c-1)+'&rarr;'+(c),'value':actual});
+									}
 								}
 							}
 
