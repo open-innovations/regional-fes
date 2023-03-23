@@ -183,9 +183,18 @@ footer ul { margin-left: 2em; }
 #about h3 { margin-top: 1em; }
 .thickline { height: 1.5vh; }
 
+.leaflet-popup-content { min-width: 320px; }
+.panes .pane { padding-top: 1em; }
+.grid.tabs { display: grid; grid-template-columns: 50% 50%; border-bottom: 1px solid #cdcdcd; }
+.grid.tabs button { padding: 0.25em; border-radius: 0; background-color: white; color: black;  border-bottom: 4px solid transparent; }
+.grid.tabs button:focus, .grid.tabs button:hover { outline: 0; background-color: white!important; }
+.grid.tabs button[aria-selected="true"] { border-color: #b04a2a; }
+
+
 /* Bar chart */
-#barchart { height: 100px; width: 300px; margin-bottom: 0.5em!important; }
-#barchart .label { display: none; }
+.barchart { height: 120px; width: 100%; margin-bottom: 0!important; }
+.barchart table { width: 85%; }
+.barchart table .label { line-height: 0px; padding: 0; }
 .leaflet-popup-content table td:first-child { padding-right: 0; }
 .leaflet-container a { color: inherit; }
 .barchart .balloon { background-color: black; color: white; text-align: left; }

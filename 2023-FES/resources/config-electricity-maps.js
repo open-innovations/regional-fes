@@ -57,10 +57,16 @@ S(document).ready(function(){
 				"popup": {
 					"text": function(attr){
 						var popup,title,dp,value;
-						popup = '<h3>%TITLE%</h3><p>%VALUE%</p><div id="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Grid supply points (ordered)</p><p style="font-size:0.8em;margin-top:0.5em;">Columns show totals for each grid supply point associated with %TITLE%. The coloured portions show the fraction considered to be in %TITLE%. Hover over each to see details.</p>';
+						popup = '<h3>%TITLE%</h3><p style="margin-bottom: 0.25em;">%VALUE%</p>';
+						// Create the panes with a unique ID for this area
+						popup += '<div class="panes tabbed" id="panes-'+attr.id+'">';
+						// Add first pane
+						popup += '<div class="pane"><span class="tab-title">Cumulative</span><div id="barchart-cumulative-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Year ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">Totals calculated by summing the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
+						// Add second pane (initially hidden to make sure popup placement isn't affected)
+						popup += '<div class="pane" style="display:none;"><span class="tab-title">Actuals</span><div id="barchart-actuals-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Year ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">The year-to-year differences ('+this.options.years.min+'=0) for the sums of the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
+						popup += '</div>';
 						title = (attr.properties.nuts118nm||'?');
-						dp = (typeof attr.parameter.dp==="number" ? attr.parameter.dp : 2);
-						value = '<strong>'+attr.parameter.title+' '+this.options.key+':</strong> '+(typeof attr.value==="number" ? (dp==0 ? Math.round(attr.value) : attr.value.toFixed(dp)).toLocaleString()+''+(attr.parameter.units ? '&thinsp;'+attr.parameter.units : '') : '');
+						value = '<strong>'+attr.parameter.title+'</strong> ';
 						return popup.replace(/\%VALUE\%/g,value).replace(/\%TITLE\%/g,title); // Replace values
 					},
 					"open": function(attr){
@@ -72,8 +78,9 @@ S(document).ready(function(){
 
 						if(attr.id){
 
-							var data = [];
+							var panels = {'cumulative':{'data':[],'popup':[]},'actuals':{'data':[],'popup':[]}};
 							var balloons = [];
+							var values = this.data.scenarios[this.options.scenario].data[this.options.parameter].layers[this.options.view].values;
 							var raw = this.data.scenarios[this.options.scenario].data[this.options.parameter].raw;
 							
 							// Work out the NUTS1 region name
@@ -83,40 +90,25 @@ S(document).ready(function(){
 									if(this.layers.NUTSlayer.geojson.features[c].properties.ctry19cd==attr.id) nuts118nm = this.layers.NUTSlayer.geojson.features[c].properties.nuts118nm;
 								}
 							}
-
-							// Find the column for the year
-							var yy = -1;
-							for(var i = 0; i < raw.fields.title.length; i++){
-								if(raw.fields.title[i]==this.options.key) yy = i;
-							}
-							if(yy < 0) return;
-							
-							for(var p in this.mapping.gsp.NUTSlayer.data){
-								if(this.mapping.gsp.NUTSlayer.data[p][attr.id]){
-									v = 0;
-									for(var i = 0; i < raw.rows.length; i++){
-										if(raw.rows[i][0]==p) v = raw.rows[i][yy];
-									}
-
-									frac = this.mapping.gsp.NUTSlayer.data[p][attr.id]*v;
-									fracOther = v - frac;
-									data.push([p,[v,p+'\nTotal: %VALUE%\n'+(this.mapping.gsp.NUTSlayer.data[p][attr.id]*100).toFixed(2).replace(/\.?0+$/,"")+'% is in '+nuts118nm,frac,fracOther]]);
+						
+							// Build the data and balloon arrays
+							for(c in values[attr.id]){
+								if(c >= this.options.years.min && c <= this.options.years.max){
+									panels.cumulative.data.push([c,values[attr.id][c]]);
+									panels.cumulative.popup.push({'year':c,'value':values[attr.id][c]});
+									actual = (typeof values[attr.id][c-1]==="number" ? values[attr.id][c]-values[attr.id][c-1] : 0)
+									panels.actuals.data.push([c,actual]);
+									panels.actuals.popup.push({'year':c,'value':actual});
 								}
 							}
 
-							data.sort(function(a, b) {
-								if(a[1][0]===b[1][0]) return 0;
-								else return (a[1][0] < b[1][0]) ? -1 : 1;
-							}).reverse();
+							parameter = this.parameters[this.options.parameter].title+' '+this.options.key;
+							units = this.parameters[this.options.parameter].units;
+							dp = this.parameters[this.options.parameter].dp;
 
-							// Remove totals from bars now that we've sorted by total
-							for(var i = 0; i < data.length; i++){
-								balloons.push(data[i][1].splice(0,2));
-							}
-							
-							// Create the barchart object. We'll add a function to
+							// Create the barchart objects. We'll add a function to
 							// customise the class of the bar depending on the key.
-							var chart = new S.barchart('#barchart',{
+							panels.cumulative.chart = new S.barchart('#barchart-cumulative-'+attr.id,{
 								'formatKey': function(key){
 									return '';
 								},
@@ -130,25 +122,55 @@ S(document).ready(function(){
 									return cls;
 								}
 							});
-
 							// Send the data array and bin size then draw the chart
-							chart.setData(data).setBins({ 'mintick': 5 }).draw();
-							parameter = this.parameters[this.options.parameter].title+' '+this.options.key;
-							units = this.parameters[this.options.parameter].units;
-							dp = this.parameters[this.options.parameter].dp;
-
+							panels.cumulative.chart.setData(panels.cumulative.data).setBins({ 'mintick': 5 }).draw();
 							// Add an event
-							chart.on('barover',function(e){
+							panels.cumulative.chart.on('barover',function(e){
 								S('.balloon').remove();
-								var b = balloons[e.bin];
-								S(e.event.currentTarget).find('.bar.series-1').append(
-									"<div class=\"balloon\">"+b[1].replace(/%VALUE%/,parseFloat((b[0]).toFixed(dp)).toLocaleString()+(units ? '&thinsp;'+units:''))+"</div>"
-								);
+								var b = panels.cumulative.popup[e.bin];
+								var balloon = document.createElement('div');
+								balloon.classList.add('balloon');
+								balloon.innerHTML = b.year+": "+parseFloat((b.value).toFixed(dp)).toLocaleString()+(units ? '&thinsp;'+units:'');
+								e.event.currentTarget.querySelector('.bar.series-0').appendChild(balloon);
 							});
+
+
+							panels.actuals.chart = new S.barchart('#barchart-actuals-'+attr.id,{
+								'formatKey': function(key){
+									return '';
+								},
+								'formatBar': function(key,val,series){
+									var cls = (typeof series==="number" ? "series-"+series : "");
+									for(var i = 0; i < this.data.length; i++){
+										if(this.data[i][0]==key){
+											if(i > this.data.length/2) cls += " bar-right";
+										}
+									}
+									return cls;
+								}
+							});
+							// Send the data array and bin size then draw the chart
+							panels.actuals.chart.setData(panels.actuals.data).setBins({ 'mintick': 5 }).draw();
+							// Add an event
+							panels.actuals.chart.on('barover',function(e){
+								S('.balloon').remove();
+								var b = panels.actuals.popup[e.bin];
+								var balloon = document.createElement('div');
+								balloon.classList.add('balloon');
+								balloon.innerHTML = b.year+": "+parseFloat((b.value).toFixed(dp)).toLocaleString()+(units ? '&thinsp;'+units:'');
+								e.event.currentTarget.querySelector('.bar.series-0').appendChild(balloon);
+							});
+
+							// Set some styles
 							S('.barchart table .bar').css({'background-color':'#cccccc'});
 							S('.barchart table .bar.series-0').css({'background-color':this.data.scenarios[this.options.scenario].color});
+
+							// Enable tabs
+							var tabbed = document.getElementById('panes-'+attr.id);
+							if(tabbed) OI.TabbedInterface(tabbed).selectTab(0,true);
+
 						}else{
-							S(attr.el).find('#barchart').remove();
+							S(attr.el).find('.barchart').remove();
 						}
 					}
 				}
@@ -322,17 +344,6 @@ S(document).ready(function(){
 			saveToFile(csv,filename,'text/plain');
 		});
 	}
-	/*
-	if(S('#download-svg')){
-		S('#download-svg').on('click',{me:fes},function(e){
-			var opt = e.data.me.options;
-			var svg = document.querySelector('.leaflet-overlay-pane svg');
-			svg.setAttribute('xmlns',"http://www.w3.org/2000/svg");
-			svg.setAttribute('xmlns:xlink',"http://www.w3.org/1999/xlink");
-			var filename = ("FES-2021--{{scenario}}--{{parameter}}--{{view}}.svg").replace(/\{\{([^\}]+)\}\}/g,function(m,p1){ return (opt[p1]||"").replace(/[ ]/g,"_") });
-			saveToFile('<?xml version="1.0" encoding="UTF-8" standalone="no"?>\n'+svg.outerHTML,filename,'text/svg');
-		});
-	}*/
 	function getGeoJSONPropertyValue(l,value){
 		if(!fes.layers[l].key){
 			fes.log('WARNING','No key set for layer '+l);
@@ -372,3 +383,106 @@ S(document).ready(function(){
 	}
 
 });
+
+// Tabbed interface
+(function(root){
+
+	if(!root.OI) root.OI = {};
+	if(!root.OI.ready){
+		root.OI.ready = function(fn){
+			// Version 1.1
+			if(document.readyState != 'loading') fn();
+			else document.addEventListener('DOMContentLoaded', fn);
+		};
+	}
+	function TabbedInterface(el){
+		var tabs,panes,li,p,h,b,l;
+		this.selectTab = function(t,focusIt){
+			var tab,pane;
+			tab = tabs[t].tab;
+			pane = tabs[t].pane;
+
+			// Remove existing selection and set all tabindex values to -1
+			tab.parentNode.querySelectorAll('button').forEach(function(el){ el.removeAttribute('aria-selected'); el.setAttribute('tabindex',-1); });
+
+			// Update the selected tab
+			tab.setAttribute('aria-selected','true');
+			tab.setAttribute('tabindex',0);
+			if(focusIt) tab.focus();
+
+			pane.closest('.panes').querySelectorAll('.pane').forEach(function(el){ el.style.display = "none"; el.setAttribute('hidden',true); });
+			pane.style.display = "block";
+			pane.removeAttribute('hidden');
+			// Loop over any potentially visible leaflet maps that haven't been sized and set the bounds
+			if(OI.maps){
+				for(var m = 0; m < OI.maps.length; m++){
+					if(OI.maps[m].map._container==pane.querySelector('.leaflet')){
+						OI.maps[m].map.invalidateSize(true);
+						if(!OI.maps[m].set){
+							if(OI.maps[m].bounds) OI.maps[m].map.fitBounds(OI.maps[m].bounds);
+							OI.maps[m].set = true;
+						}
+					}
+				}
+			}
+			return this;
+		};
+		this.enableTab = function(tab,t){
+			var _obj = this;
+
+			// Set the tabindex of the tab panel
+			panes[t].setAttribute('tabindex',0);
+
+			// Add a click/focus event
+			tab.addEventListener('click',function(e){ e.preventDefault(); var t = parseInt((e.target.tagName.toUpperCase()==="BUTTON" ? e.target : e.target.closest('button')).getAttribute('data-tab')); _obj.selectTab(t,true); });
+			tab.addEventListener('focus',function(e){ e.preventDefault(); var t = parseInt(e.target.getAttribute('data-tab')); _obj.selectTab(t,true); });
+
+			// Store the tab number in the tab (for use in the keydown event)
+			tab.setAttribute('data-tab',t);
+
+			// Add keyboard navigation to arrow keys following https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Tab_Role
+			tab.addEventListener('keydown',function(e){
+
+				// Get the tab number from the attribute we set
+				t = parseInt(e.target.getAttribute('data-tab'));
+
+				if(e.keyCode === 39 || e.keyCode === 40){
+					e.preventDefault();
+					// Move right or down
+					t++;
+					if(t >= tabs.length) t = 0;
+					_obj.selectTab(t,true);
+				}else if(e.keyCode === 37 || e.keyCode === 38){
+					e.preventDefault();
+					// Move left or up
+					t--;
+					if(t < 0) t = tabs.length-1;
+					_obj.selectTab(t,true);
+				}
+			});
+		};
+		tabs = [];
+
+		l = document.createElement('div');
+		l.classList.add('grid','tabs');
+		l.setAttribute('role','tablist');
+		l.setAttribute('aria-label','Visualisations');
+		panes = el.querySelectorAll('.pane');
+		for(p = 0; p < panes.length; p++){
+			h = panes[p].querySelector('.tab-title');
+			b = document.createElement('button');
+			b.classList.add('tab');
+			b.setAttribute('role','tab');
+			if(h) b.appendChild(h);
+			l.appendChild(b);
+			tabs[p] = {'tab':b,'pane':panes[p]};
+			this.enableTab(b,p);
+		}
+		el.insertAdjacentElement('beforebegin', l);
+		this.selectTab(0);
+
+		return this;
+	}
+	root.OI.TabbedInterface = function(el){ return new TabbedInterface(el); };
+
+})(window || this);
