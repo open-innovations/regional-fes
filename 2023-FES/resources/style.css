@@ -80,12 +80,12 @@ footer a,footer a:visited { color: inherit; }
 	text-align:left;
 	position: relative;
 	height: 100%;
-	padding: 25px 1em;
+	padding: 11px 1em;
 }
 .phb-topnav .holder a { display: inline-block; line-height: 25px; font-size: 1em; line-height: 0; }
 .phb-topnav img {
 	margin:auto;
-	height: 1.5em;
+	height: 28px;
 }
 .page-header__branding.title {
 	background-image: url('FES-Banner-22-no-grain_51.jpg');
