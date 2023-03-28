@@ -5,10 +5,31 @@
 /* Hide slider numbers (for ESO) */
 .noUi-value { display: none; }
 
+@font-face{
+	font-family:helveticaneue;
+	src:url(fonts/Helvetica-Roman/Helvetica-Roman.woff2) format("woff2"),url(Fonts/Helvetica-Roman/Helvetica-Roman.woff) format("woff");
+	font-weight:400;
+	font-style:normal;
+	font-display:swap;
+}
+@font-face{
+	font-family:helveticaneue;
+	src:url(fonts/Helvetica-Bold/Helvetica-Bold.woff2) format("woff2"),url(Fonts/Helvetica-Bold/Helvetica-Bold.woff) format("woff");
+	font-weight:700;
+	font-style:normal;
+	font-display:swap;
+}
+@font-face{
+	font-family:helveticaneue;
+	src:url(fonts/Helvetica-Italic/Helvetica-Italic.woff2) format("woff2"),url(fonts/Helvetica-Italic/Helvetica-Italic.woff) format("woff");
+	font-weight:400;
+	font-style:italic;
+	font-display:swap;
+}
 
 body {
 	background-color: #000000;
-	font-family: "Helvetica Neue", sans-serif !important;
+	font-family: helveticaneue, "Helvetica Neue", sans-serif, Arial;
 	font-size: 16px;
 	color: #efefef;
 	margin: 0px;
@@ -19,12 +40,12 @@ p, time, li, td, th, footer, div { font-weight: 300; }
 header {
 	width: 100%;
 	padding: 0px;
-	font-size: 1.2em;
+	font-size: 1em;
 	line-height: 1em;
 }
 .holder {
 	position: relative;
-	width: 1200px;
+	width: 1320px;
 	max-width: 100%;
 	margin-left: auto;
 	margin-right: auto;
@@ -64,14 +85,12 @@ footer a,footer a:visited { color: inherit; }
 .phb-topnav .holder a { display: inline-block; line-height: 25px; font-size: 1em; line-height: 0; }
 .phb-topnav img {
 	margin:auto;
-	width: 174px;
-	height: auto;
+	height: 1.5em;
 }
 .page-header__branding.title {
-	background-image: url('https://www.nationalgrideso.com/sites/eso/files/styles/hero_large/public/images/_Welcome%20to%20the%20ESO%20Future%20Energy%20Scenarios%202.jpg?h=8f74817f&itok=vdcDahWf');
+	background-image: url('FES-Banner-22-no-grain_51.jpg');
 	background-size: cover;
 	background-position: center;
-	height: 400px;
 }
 .holder { clear: both; }
 .holder::after {
@@ -79,17 +98,7 @@ footer a,footer a:visited { color: inherit; }
 	display: table;
 	clear: both;
 }
-.page-hero { position: relative; height: 100%; display: flex; align-items: flex-end; line-height: 1.4em; }
-.page-hero::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: 70%;
-	background: linear-gradient(to bottom,rgba(0,0,0,0),#000);
-	opacity: 0.8;
-}
+.page-hero { position: relative; display: flex; align-items: flex-end; line-height: 1.4em; min-height: 400px; }
 .page-hero__content {
 	width: 50%;
 	padding-top: 1rem;
@@ -97,8 +106,16 @@ footer a,footer a:visited { color: inherit; }
 	position: relative;
 	z-index: 2;
 }
+.hero-background {
+	background: #f8f8f8;
+	padding: 30px 77px 30px 25px;
+	max-width: 660px;
+	margin-top: -143px;
+}
 .page-header__branding.title .glory { position: relative; top: 60%; height: 40%; line-height: 1.3em; }
-.page-hero h1 { font-size: 1.8em; }
+.page-header h1 { font-size: 3rem; line-height: 1.16; color: black; overflow-wrap: break-word; padding: 0; }
+.hero-text { padding-top: 20px; padding-bottom: 10px; font-size: 1.25rem; line-height: 1.29; color: black; }
+.hero-text p { margin-bottom: 0; }
 
 table td.n { text-align: center; }
 

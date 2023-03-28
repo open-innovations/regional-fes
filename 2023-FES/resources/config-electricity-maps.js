@@ -61,9 +61,9 @@ S(document).ready(function(){
 						// Create the panes with a unique ID for this area
 						popup += '<div class="panes tabbed" id="panes-'+attr.id+'">';
 						// Add first pane
-						popup += '<div class="pane"><span class="tab-title">Total</span><div id="barchart-cumulative-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Year ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">Totals calculated by summing the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
+						popup += '<div class="pane"><span class="tab-title">Total</span><div id="barchart-cumulative-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Time ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">Totals calculated by summing the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
 						// Add second pane (initially hidden to make sure popup placement isn't affected)
-						popup += '<div class="pane" style="display:none;"><span class="tab-title">In-year change</span><div id="barchart-actuals-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Year</p><p style="font-size:0.8em;margin-top:0.5em;">The year-to-year differences for the sums of the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
+						popup += '<div class="pane" style="display:none;"><span class="tab-title">In-year change</span><div id="barchart-actuals-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Time ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">The year-to-year differences for the sums of the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
 						popup += '</div>';
 						title = (attr.properties.nuts118nm||'?');
 						value = '<strong>'+attr.parameter.title+'</strong> ';
