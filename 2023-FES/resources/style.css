@@ -157,7 +157,7 @@ h1 { line-height: 1em; font-size: 1.5em; padding: 0.5em 0; }
 	display: block;
 	width: 100%;
 }
-header .holder, .holder, footer .holder { padding-left: 1em; padding-right: 1em; }
+header .holder, .holder, footer .holder { padding-left: 1em; padding-right: 1em; width: calc(1320px + 2em); }
 footer { padding-left: 0px; padding-right: 0px; }
 .columns {
 	display: grid;
