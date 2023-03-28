@@ -98,7 +98,7 @@ footer a,footer a:visited { color: inherit; }
 	display: table;
 	clear: both;
 }
-.page-hero { position: relative; display: flex; align-items: flex-end; line-height: 1.4em; min-height: 400px; }
+.page-hero { position: relative; display: flex; align-items: flex-end; line-height: 1.4em; min-height: 420px; }
 .page-hero__content {
 	width: 50%;
 	padding-top: 1rem;
