@@ -17,8 +17,8 @@ S(document).ready(function(){
 				"attribution": "Vis: National Grid ESO"
 			},
 			"files": {
-				"scenarios": "data/scenarios/index-electricity-maps.json",
-				"parameters": "data/scenarios/parameters-electricity-maps.json"
+				"scenarios": "data/scenarios/index-regional-maps.json",
+				"parameters": "data/scenarios/parameters-regional-maps.json"
 			}
 		},
 		// How we map from our source data's IDs to a particular geography
