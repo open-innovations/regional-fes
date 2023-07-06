@@ -6,47 +6,47 @@
         "description": "<ul><li>Reaches net zero by 2050.</li><li>Electrified heating. Consumers willing to change behaviour. High energy efficiency. High demand side flexibility.</li></ul>",
         "data": {
             "Gen_BB001": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Gen_BB001.csv",
                 "key": "LAD22CD"
             },
             "Gen_BB002": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Gen_BB002.csv",
                 "key": "LAD22CD"
             },
             "Gen_BB003": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Gen_BB003.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB001a": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Dem_BB001a.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB002a": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Dem_BB002a.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB002b": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Dem_BB002b.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB003": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Dem_BB003.csv",
                 "key": "LAD22CD"
             },
             "Lct_BB001": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Lct_BB001.csv",
                 "key": "LAD22CD"
             },
             "Lct_BB002": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Lct_BB002.csv",
                 "key": "LAD22CD"
             }
@@ -59,47 +59,47 @@
         "description": "<ul><li>Reaches net zero by 2050.</li><li>Hydrogen for heating. Consumers less inclined to change behaviour. Lower energy efficiency. Supply side flexibility.</li></ul>",
         "data": {
             "Gen_BB001": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Gen_BB001.csv",
                 "key": "LAD22CD"
             },
             "Gen_BB002": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Gen_BB002.csv",
                 "key": "LAD22CD"
             },
             "Gen_BB003": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Gen_BB003.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB001a": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Dem_BB001a.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB002a": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Dem_BB002a.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB002b": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Dem_BB002b.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB003": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Dem_BB003.csv",
                 "key": "LAD22CD"
             },
             "Lct_BB001": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Lct_BB001.csv",
                 "key": "LAD22CD"
             },
             "Lct_BB002": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Lct_BB002.csv",
                 "key": "LAD22CD"
             }
@@ -112,47 +112,47 @@
         "description": "<ul><li>Reaches net zero by 2047.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
         "data": {
             "Gen_BB001": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Gen_BB001.csv",
                 "key": "LAD22CD"
             },
             "Gen_BB002": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Gen_BB002.csv",
                 "key": "LAD22CD"
             },
             "Gen_BB003": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Gen_BB003.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB001a": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Dem_BB001a.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB002a": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Dem_BB002a.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB002b": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Dem_BB002b.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB003": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Dem_BB003.csv",
                 "key": "LAD22CD"
             },
             "Lct_BB001": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Lct_BB001.csv",
                 "key": "LAD22CD"
             },
             "Lct_BB002": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Lct_BB002.csv",
                 "key": "LAD22CD"
             }
@@ -165,47 +165,47 @@
         "description": "<ul><li>Does not reach net zero by 2050.</li><li>Minimal behaviour change. Decarbonisation in power and transport but not heat.</li></ul>",
         "data": {
             "Gen_BB001": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Gen_BB001.csv",
                 "key": "LAD22CD"
             },
             "Gen_BB002": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Gen_BB002.csv",
                 "key": "LAD22CD"
             },
             "Gen_BB003": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Gen_BB003.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB001a": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Dem_BB001a.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB002a": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Dem_BB002a.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB002b": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Dem_BB002b.csv",
                 "key": "LAD22CD"
             },
             "Dem_BB003": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Dem_BB003.csv",
                 "key": "LAD22CD"
             },
             "Lct_BB001": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Lct_BB001.csv",
                 "key": "LAD22CD"
             },
             "Lct_BB002": {
-                "dataBy": "LAD22CD",
+                "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Lct_BB002.csv",
                 "key": "LAD22CD"
             }

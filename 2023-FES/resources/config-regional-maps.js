@@ -7,11 +7,11 @@ S(document).ready(function(){
 		// Some basic default options
 		"options": {
 			"scenario": "Leading the Way",
-			"view": "NUTS",
+			"view": "LADview",
 			"key": (new Date()).getFullYear()+'',
-			"parameter": "demandpk-all",
+			"parameter": "Gen_BB001",
 			"scale": "absolute",
-			"years": {"min":2021, "max":2050},
+			"years": {"min":2022, "max":2050},
 			"map": {
 				"bounds": [[49.8273,-6.4874],[59.4227,1.9336]],
 				"attribution": "Vis: National Grid ESO"
@@ -23,13 +23,19 @@ S(document).ready(function(){
 		},
 		// How we map from our source data's IDs to a particular geography
 		"mapping": {
-			"gsp": {
+			/*
+			"GSPmapping": {
 				// Mapping from GSPs for the NUTS 1 layer
 				"NUTSlayer": { 
 					"file": "data/gridsupplypoints2nuts1.json"
 				},
 				// No mapping needed for GSPs
 				"GSPlayer": { }
+			},*/
+			"LADmapping": {
+				"NUTSlayer": { "file": "data/lad2nuts1.json" },
+				"GSPlayer": { "file": "data/lad2gsp.json" },
+				"LADlayer": { }
 			}
 		},
 		// Define our layers so that they can be used in the views
@@ -39,16 +45,21 @@ S(document).ready(function(){
 				"key": "nuts118cd",	// The key used in the properties of the GeoJSON feature
 				"name": "nuts118nm"
 			},
+			"LADlayer":{
+				"geojson": "data/maps/Local_Authority_Districts_December_2022_Boundaries_UK_BUC.min.geojson",	// The GeoJSON file with the Local Authority features
+				"key": "LAD22CD",	// The key used in the properties of the GeoJSON feature
+				"name": "LAD22NM"
+			}/*,
 			"GSPlayer":{
 				"geojson":"data/maps/gridsupplypoints-unique-all-simplified.geojson",	// The GeoJSON file with the non-overlapping GSP features
 				"key": "GSP"	// The key used in the properties of the GeoJSON feature
-			}
+			}*/
 		},
 		// Define our map views
 		"views":{
-			"NUTS":{
+			"NUTSview":{
 				"title":"NUTS1 Regions",
-				"source": "gsp",
+				"source": "LADmapping",
 				"layers":[{
 					"id": "NUTSlayer",
 					"heatmap": true,
@@ -177,10 +188,141 @@ S(document).ready(function(){
 					}
 				}
 			},
+			"LADview":{
+				"title":"Local Authorities",
+				"source": "LADmapping",
+				"layers":[{
+					"id": "LADlayer",
+					"heatmap": true,
+					"boundary":{"strokeWidth":2}
+				}],
+				"popup": {
+					"text": function(attr){
+						var popup,title,dp,value;
+						popup = '<h3>%TITLE%</h3><p style="margin-bottom: 0.25em;">%VALUE%</p>';
+						// Create the panes with a unique ID for this area
+						popup += '<div class="panes tabbed" id="panes-'+attr.id+'">';
+						// Add first pane
+						popup += '<div class="pane"><span class="tab-title">Total</span><div id="barchart-cumulative-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Time ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">Totals calculated by summing the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
+						// Add second pane (initially hidden to make sure popup placement isn't affected)
+						popup += '<div class="pane" style="display:none;"><span class="tab-title">In-year change</span><div id="barchart-actuals-'+attr.id+'" class="barchart"></div><p style="font-size:0.8em;margin-top: 0.25em;margin-bottom:0;text-align:center;">Time ('+this.options.years.min+'-'+this.options.years.max+')</p><p style="font-size:0.8em;margin-top:0.5em;">The year-to-year differences for the sums of the contributions from individual Grid Supply Points. Hover over each bar to see details.</p></div>';
+						popup += '</div>';
+						title = (attr.properties.LAD22NM||'?');
+						value = '<strong>'+attr.parameter.title+'</strong> ';
+						return popup.replace(/\%VALUE\%/g,value).replace(/\%TITLE\%/g,title); // Replace values
+					},
+					"open": function(attr){
+
+						if(!attr) attr = {};
+						
+						l = this.views[this.options.view].layers[0].id;
+						key = this.layers[l].key;
+
+						if(attr.id){
+
+							var panels = {'cumulative':{'data':[],'popup':[]},'actuals':{'data':[],'popup':[]}};
+							var balloons = [];
+							var values = this.data.scenarios[this.options.scenario].data[this.options.parameter].layers[this.options.view].values;
+							var raw = this.data.scenarios[this.options.scenario].data[this.options.parameter].raw;
+							
+							// Work out the area name
+							var name = attr.id;
+							if(this.layers.LADlayer){
+								for(var c = 0; c < this.layers.LADlayer.geojson.features.length; c++){
+									if(this.layers.LADlayer.geojson.features[c].properties.LAD22CD==attr.id) name = this.layers.LADlayer.geojson.features[c].properties.LAD22NM;
+								}
+							}
+						
+							// Build the data and balloon arrays
+							for(c in values[attr.id]){
+								if(c >= this.options.years.min && c <= this.options.years.max){
+									panels.cumulative.data.push([c,values[attr.id][c]]);
+									panels.cumulative.popup.push({'year':c,'value':values[attr.id][c]});
+									if(c > this.options.years.min){
+										actual = (typeof values[attr.id][c-1]==="number" ? values[attr.id][c]-values[attr.id][c-1] : 0)
+										panels.actuals.data.push([c,actual]);
+										panels.actuals.popup.push({'year':(c-1)+'&rarr;'+(c),'value':actual});
+									}
+								}
+							}
+
+							parameter = this.parameters[this.options.parameter].title+' '+this.options.key;
+							units = this.parameters[this.options.parameter].units;
+							dp = this.parameters[this.options.parameter].dp;
+
+							// Create the barchart objects. We'll add a function to
+							// customise the class of the bar depending on the key.
+							panels.cumulative.chart = new S.barchart('#barchart-cumulative-'+attr.id,{
+								'formatKey': function(key){
+									return '';
+								},
+								'formatBar': function(key,val,series){
+									var cls = (typeof series==="number" ? "series-"+series : "");
+									for(var i = 0; i < this.data.length; i++){
+										if(this.data[i][0]==key){
+											if(i > this.data.length/2) cls += " bar-right";
+										}
+									}
+									return cls;
+								}
+							});
+							// Send the data array and bin size then draw the chart
+							panels.cumulative.chart.setData(panels.cumulative.data).setBins({ 'mintick': 5 }).draw();
+							// Add an event
+							panels.cumulative.chart.on('barover',function(e){
+								S('.balloon').remove();
+								var b = panels.cumulative.popup[e.bin];
+								var balloon = document.createElement('div');
+								balloon.classList.add('balloon');
+								balloon.innerHTML = b.year+": "+parseFloat((b.value).toFixed(dp)).toLocaleString()+(units ? '&thinsp;'+units:'');
+								e.event.currentTarget.querySelector('.bar.series-0').appendChild(balloon);
+							});
+
+
+							panels.actuals.chart = new S.barchart('#barchart-actuals-'+attr.id,{
+								'formatKey': function(key){
+									return '';
+								},
+								'formatBar': function(key,val,series){
+									var cls = (typeof series==="number" ? "series-"+series : "");
+									for(var i = 0; i < this.data.length; i++){
+										if(this.data[i][0]==key){
+											if(i > this.data.length/2) cls += " bar-right";
+										}
+									}
+									return cls;
+								}
+							});
+							// Send the data array and bin size then draw the chart
+							panels.actuals.chart.setData(panels.actuals.data).setBins({ 'mintick': 5 }).draw();
+							// Add an event
+							panels.actuals.chart.on('barover',function(e){
+								S('.balloon').remove();
+								var b = panels.actuals.popup[e.bin];
+								var balloon = document.createElement('div');
+								balloon.classList.add('balloon');
+								balloon.innerHTML = b.year+": "+parseFloat((b.value).toFixed(dp)).toLocaleString()+(units ? '&thinsp;'+units:'');
+								e.event.currentTarget.querySelector('.bar.series-0').appendChild(balloon);
+							});
+
+							// Set some styles
+							S('.barchart table .bar').css({'background-color':'#cccccc'});
+							S('.barchart table .bar.series-0').css({'background-color':this.data.scenarios[this.options.scenario].color});
+
+							// Enable tabs
+							var tabbed = document.getElementById('panes-'+attr.id);
+							if(tabbed) OI.TabbedInterface(tabbed).selectTab(0,true);
+
+						}else{
+							S(attr.el).find('.barchart').remove();
+						}
+					}
+				}
+			}/*,
 			"gridsupplypoints":{
 				"title":"Grid Supply Points",
 				"file":"data/maps/gridsupplypoints-unique-all.geojson",
-				"source": "gsp",
+				"source": "GSPmapping",
 				"layers":[{
 					"id": "GSPlayer",
 					"heatmap": true,
@@ -318,24 +460,7 @@ S(document).ready(function(){
 						}
 					}
 				}
-				/*"popup": {
-					"text": function(attr){
-						var popup,title,dp,value;
-						popup = '<h3>%TITLE%</h3><p>%VALUE%</p>';
-						title = '?';
-						if(attr.properties['Name']){
-							title = attr.properties['Name']+' ('+attr.properties['GSP']+')';
-						}else{
-							if(attr.properties.GSP){
-								title = attr.properties.GSP;
-							}
-						}
-						dp = (typeof attr.parameter.dp==="number" ? attr.parameter.dp : 2);
-						value = '<strong>'+attr.parameter.title+' '+this.options.key+':</strong> '+(typeof attr.value==="number" ? (dp==0 ? Math.round(attr.value) : attr.value.toFixed(dp)).toLocaleString()+''+(attr.parameter.units ? '&thinsp;'+attr.parameter.units : '') : '?');
-						return popup.replace(/\%VALUE\%/g,value).replace(/\%TITLE\%/g,title); // Replace values
-					}
-				}*/
-			}
+			}*/
 		},
 		"on": {
 			"buildMap": function(){
@@ -424,6 +549,7 @@ S(document).ready(function(){
 							key = "";
 							if(l=="NUTSlayer") key = "nuts118nm";
 							else if(l=="GSPlayer") key = "GSP";
+							else if(l=="LADlayer") key = "LAD22NM";
 							if(this.layers[l].geojson && this.layers[l].geojson.features && this.layers[l].key && key){
 								// If we haven't already processed this layer we do so now
 								if(!this.search._added[l]){
