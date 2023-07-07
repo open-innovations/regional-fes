@@ -9,7 +9,7 @@ S(document).ready(function(){
 			"scenario": "Leading the Way",
 			"view": "LADview",
 			"key": (new Date()).getFullYear()+'',
-			"parameter": "Gen_BB001",
+			"parameter": "Dem_BB003",
 			"scale": "absolute",
 			"years": {"min":2022, "max":2050},
 			"map": {
