@@ -68,7 +68,7 @@ footer a,footer a:visited { color: inherit; }
 	height: auto;
 }
 .page-header__branding.title {
-	background-image: url('https://www.nationalgrideso.com/sites/eso/files/styles/hero_large/public/images/_Welcome%20to%20the%20ESO%20Future%20Energy%20Scenarios%202.jpg?h=8f74817f&itok=vdcDahWf');
+	background-image: url('header.jpg');
 	background-size: cover;
 	background-position: center;
 	height: 400px;

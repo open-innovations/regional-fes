@@ -1,0 +1,75 @@
+﻿2022 Buildings Blocks,,,,,,,,,,,
+Template,Technology,Building Block ID Number,Technology Detail,Units,Detail,Comments,,Alignment with Ofgem Core Scenario Key Drivers,,Included in ESO Data,ESO Comments
+Generation ,Non-renewable CHP,Gen_BB001,>=1MW,MW,Installed capacity,Non-renewable,,Distribution Thermal Generation (MW),,Y,
+,,Gen_BB002,<1MW,MW,Installed capacity,Non-renewable excluding domestic Micro CHP,,,,Y,
+,Micro CHP,Gen_BB003,Domestic (G98/G83),MW,Installed capacity,,,,,Y,
+,"Renewable Engines (Landfill Gas, Sewage Gas, Biogas)",Gen_BB004,,MW,Installed capacity,"Reciprocating Engines, Gas Turbines, Includes Anaerobic Digestion",,,,Y,
+,Non-renewable Engines (Diesel) (non CHP),Gen_BB005,,,,,,,,Y,
+,Non-renewable Engines (Gas) (non CHP),Gen_BB006,,MW,Installed capacity,"Reciprocating Engines, Gas Turbines",,,,Y,
+,Fuel Cells,Gen_BB007,,MW,Installed capacity,Hydrogen or Gas as fuel input,,,,Y,
+,OCGTs (non CHP),Gen_BB008,,MW,Installed capacity,Open Cycle Gas Turbines,,,,Y,
+,CCGTs (non CHP),Gen_BB009,,MW,Installed capacity,Combined Cycle Gas Turbines:,,,,Y,
+,Biomass & Energy Crops (including CHP),Gen_BB010,Includes Biomass Conversions,MW,Installed capacity,,,,,Y,
+,Waste Incineration (including CHP),Gen_BB011,,MW,Installed capacity,,,,,Y,
+,Solar Generation,Gen_BB012,Large (G99),MW,Installed capacity,,,Solar Generation (MW),,Y,
+,,Gen_BB013,Small (G98/G83),MW,Installed capacity,,,,,Y,
+,Wind,Gen_BB014,Offshore Wind,MW,Installed capacity,,,Wind Generation (MW),,Y,
+,,Gen_BB015,Onshore Wind >=1MW,,,,,,,Y,
+,,Gen_BB016,Onshore Wind <1MW,MW,Installed capacity,,,,,Y,
+,Marine,Gen_BB017,"Tidal Stream, Wave Power, Tidal Lagoon",MW,Installed capacity,,,Not mentioned in Ofgem Core Scenario BBs,,Y,
+,Hydro,Gen_BB018,Not pumped hydro,MW,Installed capacity,,,Not mentioned in Ofgem Core Scenario BBs,,Y,
+,Geothermal,Gen_BB019,,MW,Installed capacity,,,Not mentioned in Ofgem Core Scenario BBs,,Y,
+,Nuclear,Gen_BB020,,MW,Installed capacity,,,Not mentioned in Ofgem Core Scenario BBs,,Y,
+,Coal,Gen_BB021,COAL,MW,Installed capacity,Transmission connected coal fired generation,,,,Y,
+,Interconnector,Gen_BB022,IC,MW,Installed capacity,Transmission connected interconnection of other Transmission networks,,,,Y,
+,Hydrogen fuelled generation,Gen_BB023,Hydrogen,MW,Installed capacity,Hydrogen fired generation,,,,Y,
+,Offshore-Wind (off-Grid),Gen_BB024,NC_GEN,MW,Installed capacity,Offshore wind capacity not connected to NETS,,,,Y,
+Demand,,Dem_BB001a,Domestic,Number of,Number of domestic customers,,,,,Y,
+,,Dem_BB002a,I&C,Number of ,Number of I&C customers,,,,,Y,
+,,Dem_BB002b,I&C, Metres squared ,Area of I&C customers,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Dem_BB003,Demand,GWh,Total Annual consumption in GWh,"Total demand consumption at GSP level, including losses, any energy saving and new LCT driven demand growth",,,,Y,"The Building block data has been developed using a combination of modelling approaches for generating geographical split of demand. This year we’ve introduced a bottom-up approach for modelling demand for heat in buildings, where calculations are performed from data below the GSP and then aggregated up to GSP level. Transport demand modelling on the other hand starts with a GB level estimate of demand which we then disaggregate down to GSP level. There are some trade-offs with this mixed approach to generating GSP level data and some combinations of the individual elements will need refining in the future.  As always, we’ll continue to work with stakeholders to improve our assumptions and modelling methodologies."
+,,Dem_BB004,Residential HP Demand ,GWh,Total Annual consumption in GWh,Heat demand due to residential HPs (including hybrid HPs),,,,Y,
+,,Dem_BB005,I&C HP Demand ,GWh,Total Annual consumption in GWh,Heat demand due to I&C HPs (including hybrid HPs),,,,Y,
+,,Dem_BB006,EV Demand 1,GWh,Total Annual consumption in GWh,"Transport demand due to Light Vans, Cars and Motorbikes (including Hybrid EVs)",,,,Y,
+,,Dem_BB007,EV Demand 2,GWh,Total Annual consumption in GWh,Transport demand due to HGVs and Buses (including Hybrid EVs),,,,Y,
+,,Dem_BB008,Baseline Demand ,GWh,Total Annual consumption in GW,The gross energy consumption excluding EVs and HPs (BB8=BB3-BB4-BB5-BB6-BB7),,,,Y,
+,,Dem_BB008a,Baseline Domestic True Demand,GWh,Total Annual consumption in GWh,Total gross annual consumption of domestic end customers minus domestic EV and domestic HP demand.,,,,Y,
+,,Dem_BB008b,Non-domestic Demand,GWh,Total Annual consumption in GWh,Total gross annual consumption of non-domestic end customers minus non-domestic EV and non-domestic HP demand.,,,,Y,
+,,Dem_BB009,Hydrogen electrolysis,MW,Installed capacity,,,,,Y,
+Demand Low Carbon Technologies,Electric Vehicles,Lct_BB001,"Pure Electric  (vans, cars & motorbikes)",Number of,Number of EVs registered in the specific geographical area,"Light Vans,Cars and Motorbikes
+Includes number of EVs in the specific geographical area",,Low carbon vehicles,,Y,
+,,Lct_BB002,"Plug-in-hybrid (vans, cars and motorbikes)",Number of,Number of EVs registered in the specific geographical area," Light Vans, Cars and Motorbikes
+Includes number of EVs in the specific geographical area",,,,Y,
+,,Lct_BB003,"Pure Electric (road vehicles other than vans, cars and motorbikes)",Number of,Number of EVs registered in the specific geographical area,"HGVs and Buses
+Includes number of EVs in the specific geographical area",,,,Y,
+,,Lct_BB004,"Plug-in-hybrid (road vehicles other than vans, cars and motorbikes)",Number of,Number of EVs registered in the specific geographical area,"HGVs and Buses
+Includes number of EVs in the specific geographical area",,,,Y,
+,Heat Pumps,Lct_BB005,Domestic - Non-hybrid,Number of,Number of Heat Pumps registered in the specific geographical area,Excluding those supplying District Heating,,Heat (Number of installations (k)),,Y,
+,,Lct_BB006,Domestic - Hybrid,Number of,Number of Heat Pumps registered in the specific geographical area,"Electrical vs Gas bias
+Excluding those supplying District Heating",,,,Y,
+,,Lct_BB007,I&C - Non-hybrid,Number of,Number of Heat Pumps registered in the specific geographical area,Excluding those supplying District Heating,,,,Y,
+,,Lct_BB008,I&C - Hybrid,Number of,Number of Heat Pumps registered in the specific geographical area,"Electrical vs Gas bias
+Exluding those supplying District Heating",,,,Y,
+,District Heating,Lct_BB009,,Number of properties connected to DH,,,,Heat (Number of installations (k)),,Y,
+,Electric Vehicle Charging units,Lct_BB010a,Domestic,Number of,Number of domestic charging units,Excluding 3pin plugs,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Lct_BB010b,Domestic,MW,Installed capacity of domestic charging units,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Lct_BB011a,Workplace,Number of,Number of Workplace charging units,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Lct_BB011b,Workplace,MW,Installed capacity of Workplace charging units,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Lct_BB012a,Public Slow/Fast,Number of,Number of Public Slow/Fast charging units,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Lct_BB012b,Public Slow/Fast,MW,Installed capacity of public Slow/Fast charging units,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Lct_BB013a,Public Rapid ,Number of,Number of Public Rapid charging units,defined as >=43kW,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Lct_BB013b,Public Rapid ,MW,Installed capacity of public Rapid charging units,defined as >=43kW,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,Airconditioning units,Lct_BB014,A/C Domestic units,Number of,,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Lct_BB015,A/C I&C units,Number of,,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+Storage & Flexibility,Storage,Srg_BB001,Batteries,MW,Installed capacity (MWh?),Record Import and Export seperately,,Storage (GW),,Y,
+,,Srg_BB002,Domestic Batteries (G98),MW,Installed capacity,,,,,Y,
+,,Srg_BB003,Pumped Hydro,MW,Installed capacity,,,,,Y,
+,,Srg_BB004,Other,MW,Installed capacity,,,,,Y,
+,,Srg_BB005,V2G,MW availability,Potential MW available to participate,,,,,Y,
+,I&C Flexibility,Srg_BB006a,I&C Flexibility (TouT),MW availability,Potential MW available to participate in DSR,,,Total Industrial & Commercial demand available to participate in Demand Response (Non-contracted),,Y,"The Building block data has been developed using a combination of modelling approaches for generating geographical split of demand. This year we’ve introduced a bottom-up approach for modelling demand for heat in buildings, where calculations are performed from data below the GSP and then aggregated up to GSP level. Transport demand modelling on the other hand starts with a GB level estimate of demand which we then disaggregate down to GSP level. There are some trade-offs with this mixed approach to generating GSP level data and some combinations of the individual elements will need refining in the future.  As always, we’ll continue to work with stakeholders to improve our assumptions and modelling methodologies."
+,,Srg_BB006b,I&C Flexibility (TouT),% customers ,% Potential participating customers ,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,Domestic Flexibility,Srg_BB007a,Electric Vehicle Smart Charging (TouT),MW availability,Potential MW available to participate in DSR,,,"Total domestic demand available to participate in Demand Response (Non-contracted).
+It is assumed that a domestic customer to have a separate EV based tariff ",,N,Not included - we do not have this information as part of our FES analysis. 
+,,Srg_BB007b,Electric Vehicle Smart Charging (TouT),% customers ,% Potential participating customers ,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Srg_BB08a,Domestic Flexibility (TouT),MW availability,Potential MW available to participate in DSR,,,,,N,Not included - we do not have this information as part of our FES analysis. 
+,,Srg_BB08b,Domestic Flexibility (TouT),% customers ,% Potential participating customers ,,,,,N,Not included - we do not have this information as part of our FES analysis. 

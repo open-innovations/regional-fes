@@ -1,0 +1,83 @@
+[
+    {
+        "key":"Gen_BB001",
+        "optgroup":"Generation",
+        "title":"Non-renewable CHP (>1MW)",
+        "combine":"sum",
+        "description":null,
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"Gen_BB002",
+        "optgroup":"Generation",
+        "title":"Non-renewable CHP (<1MW)",
+        "combine":"sum",
+        "description":"Excluding domestic Micro CHP",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"Gen_BB003",
+        "optgroup":"Generation",
+        "title":"Micro CHP",
+        "combine":"sum",
+        "description":"Domestic (G98\/G83)",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"Dem_BB001a",
+        "optgroup":"Demand",
+        "title":"Number of domestic customers",
+        "combine":"sum",
+        "description":null,
+        "units":"Number of",
+        "dp":2
+    },
+    {
+        "key":"Dem_BB002a",
+        "optgroup":"Demand",
+        "title":"Number of I&C customers",
+        "combine":"sum",
+        "description":null,
+        "units":"Number of ",
+        "dp":2
+    },
+    {
+        "key":"Dem_BB002b",
+        "optgroup":"Demand",
+        "title":"Area of I&C customers",
+        "combine":"sum",
+        "description":null,
+        "units":" Metres squared ",
+        "dp":2
+    },
+    {
+        "key":"Dem_BB003",
+        "optgroup":"Demand",
+        "title":"Total Demand at GSP",
+        "combine":"sum",
+        "description":"Total demand consumption at GSP level, including losses, any energy saving and new LCT driven demand growth",
+        "units":"GWh",
+        "dp":2
+    },
+    {
+        "key":"Lct_BB001",
+        "optgroup":"Electric Vehicles",
+        "title":"Pure Electric  (vans, cars & motorbikes)",
+        "combine":"sum",
+        "description":null,
+        "units":"Number of",
+        "dp":2
+    },
+    {
+        "key":"Lct_BB002",
+        "optgroup":"Electric Vehicles",
+        "title":"Plug-in-hybrid (vans, cars & motorbikes)",
+        "combine":"sum",
+        "description":null,
+        "units":"Number of",
+        "dp":2
+    }
+]
