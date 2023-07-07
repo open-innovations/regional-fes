@@ -1,68 +1,5 @@
 [
     {
-        "key":"Gen_BB001",
-        "optgroup":"Generation",
-        "title":"Non-renewable CHP (>1MW)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB002",
-        "optgroup":"Generation",
-        "title":"Non-renewable CHP (<1MW)",
-        "combine":"sum",
-        "description":"Excluding domestic Micro CHP",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB003",
-        "optgroup":"Generation",
-        "title":"Micro CHP",
-        "combine":"sum",
-        "description":"Domestic (G98\/G83)",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB004",
-        "optgroup":"Generation",
-        "title":"Renewable Engines (Landfill Gas, Sewage Gas, Biogas)",
-        "combine":"sum",
-        "description":"Reciprocating engines, gas Turbines, includes anaerobic digestion",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB005",
-        "optgroup":"Generation",
-        "title":"Non-renewable Engines (Diesel) (non CHP)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB006",
-        "optgroup":"Generation",
-        "title":"Non-renewable Engines (Gas) (non CHP)",
-        "combine":"sum",
-        "description":"Reciprocating engines, gas turbines",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB007",
-        "optgroup":"Generation",
-        "title":"Fuel Cells",
-        "combine":"sum",
-        "description":"Hydrogen or gas as fuel input",
-        "units":"MW",
-        "dp":2
-    },
-    {
         "key":"Gen_BB008",
         "optgroup":"Generation",
         "title":"OCGTs (non CHP)",
@@ -77,24 +14,6 @@
         "title":"CCGTs (non CHP)",
         "combine":"sum",
         "description":"Combined Cycle Gas Turbines",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB010",
-        "optgroup":"Generation",
-        "title":"Biomass & Energy Crops (including CHP)",
-        "combine":"sum",
-        "description":"Includes biomass conversions",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB011",
-        "optgroup":"Generation",
-        "title":"Waste Incineration (including CHP)",
-        "combine":"sum",
-        "description":null,
         "units":"MW",
         "dp":2
     },
@@ -198,48 +117,12 @@
         "dp":2
     },
     {
-        "key":"Gen_BB023",
-        "optgroup":"Generation",
-        "title":"Hydrogen fuelled generation",
-        "combine":"sum",
-        "description":"Hydrogen fired generation",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB024",
-        "optgroup":"Generation",
-        "title":"Offshore-Wind (off-Grid)",
-        "combine":"sum",
-        "description":"Offshore wind capacity not connected to NETS",
-        "units":"MW",
-        "dp":2
-    },
-    {
         "key":"Dem_BB001a",
         "optgroup":"Demand",
         "title":"Number of domestic customers",
         "combine":"sum",
         "description":null,
         "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB002a",
-        "optgroup":"Demand",
-        "title":"Number of I&C customers",
-        "combine":"sum",
-        "description":null,
-        "units":"Number of ",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB002b",
-        "optgroup":"Demand",
-        "title":"Area of I&C customers",
-        "combine":"sum",
-        "description":null,
-        "units":" Metres squared ",
         "dp":2
     },
     {
@@ -257,15 +140,6 @@
         "title":"Residential Heat Pump Demand ",
         "combine":"sum",
         "description":"Heat demand due to residential HPs (including hybrid HPs)",
-        "units":"GWh",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB005",
-        "optgroup":"Demand",
-        "title":"I&C Heat Pump Demand ",
-        "combine":"sum",
-        "description":"Heat demand due to I&C HPs (including hybrid HPs)",
         "units":"GWh",
         "dp":2
     },
@@ -297,33 +171,6 @@
         "dp":2
     },
     {
-        "key":"Dem_BB008a",
-        "optgroup":"Demand",
-        "title":"Baseline Domestic True Demand",
-        "combine":"sum",
-        "description":"Total gross annual consumption of domestic end customers minus domestic EV and domestic HP demand.",
-        "units":"GWh",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB008b",
-        "optgroup":"Demand",
-        "title":"Non-domestic Baseline Demand",
-        "combine":"sum",
-        "description":"Total gross annual consumption of non-domestic end customers minus non-domestic EV and non-domestic HP demand.",
-        "units":"GWh",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB009",
-        "optgroup":"Demand",
-        "title":"Hydrogen electrolysis",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
         "key":"Lct_BB001",
         "optgroup":"Electric Vehicles",
         "title":"Pure Electric  (vans, cars & motorbikes)",
@@ -338,24 +185,6 @@
         "title":"Plug-in-hybrid (vans, cars & motorbikes)",
         "combine":"sum",
         "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB003",
-        "optgroup":"Electric Vehicles",
-        "title":"Pure Electric (other)",
-        "combine":"sum",
-        "description":"Not cars, vans and motorbikes",
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB004",
-        "optgroup":"Electric Vehicles",
-        "title":"Plug-in-hybrid (other)",
-        "combine":"sum",
-        "description":"Not cars, vans and motorbikes",
         "units":"Number of",
         "dp":2
     },
@@ -378,117 +207,9 @@
         "dp":2
     },
     {
-        "key":"Lct_BB007",
-        "optgroup":"Heat Pumps",
-        "title":"Heat pumps - I&C - Non-hybrid",
-        "combine":"sum",
-        "description":"Excluding those supplying district heating",
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB008",
-        "optgroup":"Heat Pumps",
-        "title":"Heat pumps - I&C - Hybrid",
-        "combine":"sum",
-        "description":"Excluding those supplying district heating",
-        "units":"Number of",
-        "dp":2
-    },
-    {
         "key":"Lct_BB009",
         "optgroup":"District Heating",
         "title":"Properties connected to district heating",
-        "combine":"sum",
-        "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB010a",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging units - Domestic",
-        "combine":"sum",
-        "description":"Excludes three-pin plugs",
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB010b",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging capacity - Domestic",
-        "combine":"sum",
-        "description":"Excludes three-pin plugs",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB011a",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging units - Workplace",
-        "combine":"sum",
-        "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB011b",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging capacity - Workplace",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB012a",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging units - Public Slow\/Fast",
-        "combine":"sum",
-        "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB012b",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging capacity - Public Slow\/Fast",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB013a",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging units - Public Rapid ",
-        "combine":"sum",
-        "description":"Chargers defined as >=43kW",
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB013b",
-        "optgroup":"Electric Vehicles",
-        "title":"Charging capacity - Public Rapid ",
-        "combine":"sum",
-        "description":"Chargers defined as >=43kW",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB014",
-        "optgroup":"Air Conditioning",
-        "title":"A\/C Domestic units",
-        "combine":"sum",
-        "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB015",
-        "optgroup":"Air Conditioning",
-        "title":"A\/C I&C units",
         "combine":"sum",
         "description":null,
         "units":"Number of",
@@ -522,75 +243,12 @@
         "dp":2
     },
     {
-        "key":"Srg_BB004",
-        "optgroup":"Storage",
-        "title":"Other",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
         "key":"Srg_BB005",
         "optgroup":"Flexibility",
         "title":"V2G",
         "combine":"sum",
         "description":"Potential MW available to participate",
         "units":"MW availability",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB006a",
-        "optgroup":"Flexibility",
-        "title":"I&C Flexibility (TouT)",
-        "combine":"sum",
-        "description":"Potential MW available to participate in DSR",
-        "units":"MW availability",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB006b",
-        "optgroup":"Flexibility",
-        "title":"I&C Flexibility (TouT)",
-        "combine":"sum",
-        "description":"Potential participating customers ",
-        "units":"% customers ",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB007a",
-        "optgroup":"Flexibility",
-        "title":"Electric Vehicle Smart Charging (TouT)",
-        "combine":"sum",
-        "description":"Potential MW available to participate in DSR",
-        "units":"MW availability",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB007b",
-        "optgroup":"Flexibility",
-        "title":"Electric Vehicle Smart Charging (TouT)",
-        "combine":"sum",
-        "description":"Potential participating customers ",
-        "units":"% customers ",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB08a",
-        "optgroup":"Flexibility",
-        "title":"Domestic Flexibility (TouT)",
-        "combine":"sum",
-        "description":"Potential MW available to participate in DSR",
-        "units":"MW availability",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB08b",
-        "optgroup":"Flexibility",
-        "title":"Domestic Flexibility (TouT)",
-        "combine":"sum",
-        "description":"Potential participating customers ",
-        "units":"% customers ",
         "dp":2
     }
 ]
