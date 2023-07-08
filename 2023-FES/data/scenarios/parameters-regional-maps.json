@@ -1,254 +1,146 @@
 [
     {
-        "key":"Gen_BB008",
+        "key":"GenX_001",
         "optgroup":"Generation",
-        "title":"OCGTs (non CHP)",
+        "title":"Installed capacity - all kinds",
         "combine":"sum",
-        "description":"Open Cycle Gas Turbines",
+        "description":"Total installed capacity of all distributed generation, not including storage or flexibility",
         "units":"MW",
         "dp":2
     },
     {
-        "key":"Gen_BB009",
+        "key":"GenX_002",
         "optgroup":"Generation",
-        "title":"CCGTs (non CHP)",
+        "title":"Installed capacity - renewable",
         "combine":"sum",
-        "description":"Combined Cycle Gas Turbines",
+        "description":"Total installed capacity of all distributed renewable generation, not including storage or flexibility",
         "units":"MW",
         "dp":2
     },
     {
-        "key":"Gen_BB012",
+        "key":"GenX_003",
         "optgroup":"Generation",
-        "title":"Solar Generation - Large (G99)",
+        "title":"Installed capacity - fossil fuels",
         "combine":"sum",
-        "description":null,
+        "description":"Total installed capacity of all distributed fossil fuel generation.",
         "units":"MW",
         "dp":2
     },
     {
-        "key":"Gen_BB013",
+        "key":"GenX_004",
         "optgroup":"Generation",
-        "title":"Solar Generation - Small (G98\/G83)",
+        "title":"Installed capacity - all wind",
         "combine":"sum",
-        "description":null,
+        "description":"Total installed capacity of all distributed wind generation. ",
         "units":"MW",
         "dp":2
     },
     {
-        "key":"Gen_BB014",
+        "key":"GenX_005",
         "optgroup":"Generation",
-        "title":"Offshore Wind",
+        "title":"Installed capacity - solar",
         "combine":"sum",
-        "description":null,
+        "description":"Total installed capacity of all distributed solar generation. ",
         "units":"MW",
         "dp":2
     },
     {
-        "key":"Gen_BB015",
-        "optgroup":"Generation",
-        "title":"Onshore Wind (>=1MW)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB016",
-        "optgroup":"Generation",
-        "title":"Onshore Wind (<1MW)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB017",
-        "optgroup":"Generation",
-        "title":"Marine",
-        "combine":"sum",
-        "description":"Tidal Stream, Wave Power, Tidal Lagoon",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB018",
-        "optgroup":"Generation",
-        "title":"Hydro",
-        "combine":"sum",
-        "description":"Not pumped hydro",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB019",
-        "optgroup":"Generation",
-        "title":"Geothermal",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB020",
-        "optgroup":"Generation",
-        "title":"Nuclear",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB021",
-        "optgroup":"Generation",
-        "title":"Coal",
-        "combine":"sum",
-        "description":"Transmission connected coal fired generation",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Gen_BB022",
-        "optgroup":"Generation",
-        "title":"Interconnector",
-        "combine":"sum",
-        "description":"Transmission connected interconnection of other Transmission networks",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB001a",
+        "key":"DemX_001",
         "optgroup":"Demand",
-        "title":"Number of domestic customers",
+        "title":"Annual demand",
         "combine":"sum",
-        "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB003",
-        "optgroup":"Demand",
-        "title":"Total Demand at GSP",
-        "combine":"sum",
-        "description":"Total demand consumption at GSP level, including losses, any energy saving and new LCT driven demand growth",
+        "description":"Total annual demand including electric vehicle and heat pumps",
         "units":"GWh",
         "dp":2
     },
     {
-        "key":"Dem_BB004",
+        "key":"DemX_002",
         "optgroup":"Demand",
-        "title":"Residential Heat Pump Demand ",
+        "title":"Annual baseline demand",
         "combine":"sum",
-        "description":"Heat demand due to residential HPs (including hybrid HPs)",
+        "description":"Total baseline demand, not including electric vehicle or heat pumps",
         "units":"GWh",
         "dp":2
     },
     {
-        "key":"Dem_BB006",
-        "optgroup":"Demand",
-        "title":"EV Demand - Cars, motorbikes and light vans",
-        "combine":"sum",
-        "description":"Transport demand due to Light Vans, Cars and Motorbikes (including Hybrid EVs)",
-        "units":"GWh",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB007",
-        "optgroup":"Demand",
-        "title":"EV Demand - HGVs and Buses",
-        "combine":"sum",
-        "description":"Transport demand due to HGVs and Buses (including Hybrid EVs)",
-        "units":"GWh",
-        "dp":2
-    },
-    {
-        "key":"Dem_BB008",
-        "optgroup":"Demand",
-        "title":"Baseline Demand ",
-        "combine":"sum",
-        "description":"The gross energy consumption excluding EVs and HPs",
-        "units":"GWh",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB001",
-        "optgroup":"Electric Vehicles",
-        "title":"Pure Electric  (vans, cars & motorbikes)",
-        "combine":"sum",
-        "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB002",
-        "optgroup":"Electric Vehicles",
-        "title":"Plug-in-hybrid (vans, cars & motorbikes)",
-        "combine":"sum",
-        "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB005",
-        "optgroup":"Heat Pumps",
-        "title":"Heat pumps - Domestic - Non-hybrid",
-        "combine":"sum",
-        "description":"Excluding those supplying district heating",
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB006",
-        "optgroup":"Heat Pumps",
-        "title":"Heat pumps - Domestic - Hybrid",
-        "combine":"sum",
-        "description":"Excluding those supplying district heating",
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Lct_BB009",
-        "optgroup":"District Heating",
-        "title":"Properties connected to district heating",
-        "combine":"sum",
-        "description":null,
-        "units":"Number of",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB001",
-        "optgroup":"Storage",
-        "title":"Batteries",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB002",
-        "optgroup":"Storage",
-        "title":"Domestic Batteries (G98)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB003",
-        "optgroup":"Storage",
-        "title":"Pumped Hydro",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"Srg_BB005",
+        "key":"FleX_001",
         "optgroup":"Flexibility",
-        "title":"V2G",
+        "title":"Total available battery storage",
         "combine":"sum",
-        "description":"Potential MW available to participate",
-        "units":"MW availability",
+        "description":"Capacity of distribution connected battery storage available",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"FleX_002",
+        "optgroup":"Flexibility",
+        "title":"Total available pumped hydro",
+        "combine":"sum",
+        "description":"Capacity of pumped hydro systems avaialble.",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"FleX_003",
+        "optgroup":"Flexibility",
+        "title":"Available capacity - Vehicle to grid",
+        "combine":"sum",
+        "description":"Total available capacity that could be stored in electric vehicles",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"HetX_001",
+        "optgroup":"Heating",
+        "title":"Number of heat pumps",
+        "combine":"sum",
+        "description":"Number of heat pumps including hybrids in domestic and non-domestic customers.",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"HetX_002",
+        "optgroup":"Heating",
+        "title":"Households on district heating",
+        "combine":"sum",
+        "description":"Number of households that are connected to some form of district heating.",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"HetX_003",
+        "optgroup":"Heating",
+        "title":"Total Heat Pump Demand",
+        "combine":"sum",
+        "description":"Total demand from domestic and non-domestic heat pumps.",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"EVX_001",
+        "optgroup":"Electric Vehicles",
+        "title":"Battery Electric Vehicles",
+        "combine":"sum",
+        "description":"Number of pure battery electric vehicles in region, not including plug in hybrids",
+        "units":"",
+        "dp":2
+    },
+    {
+        "key":"EVX_002",
+        "optgroup":"Electric Vehicles",
+        "title":"Plug in hybrid",
+        "combine":"sum",
+        "description":"Number of plug in hybrids in region",
+        "units":"",
+        "dp":2
+    },
+    {
+        "key":"EVX_003",
+        "optgroup":"Electric Vehicles",
+        "title":"Electric vehicle demand",
+        "combine":"sum",
+        "description":"Total demand for charging electric vehicles.",
+        "units":"MW",
         "dp":2
     }
 ]
