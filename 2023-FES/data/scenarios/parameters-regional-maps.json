@@ -1,28 +1,37 @@
 [
     {
+        "key":"Dem_BB003",
+        "optgroup":"Demand",
+        "title":"Annual demand",
+        "combine":"sum",
+        "description":"Total annual demand including losses and electric vehicle and heat pump demand.",
+        "units":"GWh",
+        "dp":2
+    },
+    {
         "key":"GenX_001",
         "optgroup":"Generation",
-        "title":"Installed capacity - all kinds",
+        "title":"Installed capacity - all",
         "combine":"sum",
-        "description":"Total installed capacity of all distributed generation, not including storage or flexibility",
+        "description":"Total installed capacity of all distributed generation, not including storage, flexibility or interconnector flows.",
         "units":"MW",
         "dp":2
     },
     {
         "key":"GenX_002",
         "optgroup":"Generation",
-        "title":"Installed capacity - renewable",
+        "title":"Installed capacity - low-carbon",
         "combine":"sum",
-        "description":"Total installed capacity of all distributed renewable generation, not including storage or flexibility",
+        "description":"Total installed capacity of all distributed low-carbon generation, not including storage or flexibility",
         "units":"MW",
         "dp":2
     },
     {
         "key":"GenX_003",
         "optgroup":"Generation",
-        "title":"Installed capacity - fossil fuels",
+        "title":"Installed capacity - high-carbon",
         "combine":"sum",
-        "description":"Total installed capacity of all distributed fossil fuel generation.",
+        "description":"Total installed capacity of all distributed non-renewable generation, for example coal and gas. ",
         "units":"MW",
         "dp":2
     },
@@ -38,19 +47,10 @@
     {
         "key":"GenX_005",
         "optgroup":"Generation",
-        "title":"Installed capacity - solar",
+        "title":"Installed capacity - all solar",
         "combine":"sum",
         "description":"Total installed capacity of all distributed solar generation. ",
         "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"DemX_001",
-        "optgroup":"Demand",
-        "title":"Annual demand",
-        "combine":"sum",
-        "description":"Total annual demand including electric vehicle and heat pumps",
-        "units":"GWh",
         "dp":2
     },
     {
@@ -85,7 +85,7 @@
         "optgroup":"Flexibility",
         "title":"Available capacity - Vehicle to grid",
         "combine":"sum",
-        "description":"Total available capacity that could be stored in electric vehicles",
+        "description":"Total available capacity that could be provided from electric vehicles.",
         "units":"MW",
         "dp":2
     },
@@ -94,8 +94,8 @@
         "optgroup":"Heating",
         "title":"Number of heat pumps",
         "combine":"sum",
-        "description":"Number of heat pumps including hybrids in domestic and non-domestic customers.",
-        "units":"MW",
+        "description":"Number of heat pumps (including hybrids) installed at domestic and non-domestic customers.",
+        "units":"  ",
         "dp":2
     },
     {
@@ -104,7 +104,7 @@
         "title":"Households on district heating",
         "combine":"sum",
         "description":"Number of households that are connected to some form of district heating.",
-        "units":"MW",
+        "units":"  ",
         "dp":2
     },
     {
@@ -113,7 +113,7 @@
         "title":"Total Heat Pump Demand",
         "combine":"sum",
         "description":"Total demand from domestic and non-domestic heat pumps.",
-        "units":"MW",
+        "units":"GWh",
         "dp":2
     },
     {
@@ -122,7 +122,7 @@
         "title":"Battery Electric Vehicles",
         "combine":"sum",
         "description":"Number of pure battery electric vehicles in region, not including plug in hybrids",
-        "units":"",
+        "units":"  ",
         "dp":2
     },
     {
@@ -131,7 +131,7 @@
         "title":"Plug in hybrid",
         "combine":"sum",
         "description":"Number of plug in hybrids in region",
-        "units":"",
+        "units":"  ",
         "dp":2
     },
     {
@@ -140,7 +140,7 @@
         "title":"Electric vehicle demand",
         "combine":"sum",
         "description":"Total demand for charging electric vehicles.",
-        "units":"MW",
+        "units":"GWh",
         "dp":2
     }
 ]
