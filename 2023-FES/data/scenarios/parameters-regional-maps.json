@@ -11,34 +11,16 @@
     {
         "key":"GenX_001",
         "optgroup":"Generation",
-        "title":"Installed capacity - all",
+        "title":"Installed capacity - all technologies",
         "combine":"sum",
         "description":"Total installed capacity of all distributed generation, not including storage, flexibility or interconnector flows.",
         "units":"MW",
         "dp":2
     },
     {
-        "key":"GenX_002",
-        "optgroup":"Generation",
-        "title":"Installed capacity - low-carbon",
-        "combine":"sum",
-        "description":"Total installed capacity of all distributed low-carbon generation, not including storage or flexibility",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"GenX_003",
-        "optgroup":"Generation",
-        "title":"Installed capacity - high-carbon",
-        "combine":"sum",
-        "description":"Total installed capacity of all distributed non-renewable generation, for example coal and gas. ",
-        "units":"MW",
-        "dp":2
-    },
-    {
         "key":"GenX_004",
         "optgroup":"Generation",
-        "title":"Installed capacity - all wind",
+        "title":"Installed capacity - wind",
         "combine":"sum",
         "description":"Total installed capacity of all distributed wind generation. ",
         "units":"MW",
@@ -47,18 +29,18 @@
     {
         "key":"GenX_005",
         "optgroup":"Generation",
-        "title":"Installed capacity - all solar",
+        "title":"Installed capacity - solar",
         "combine":"sum",
         "description":"Total installed capacity of all distributed solar generation. ",
         "units":"MW",
         "dp":2
     },
     {
-        "key":"DemX_002",
+        "key":"DemX_001",
         "optgroup":"Demand",
-        "title":"Annual baseline demand",
+        "title":"Annual demand",
         "combine":"sum",
-        "description":"Total baseline demand, not including electric vehicle or heat pumps",
+        "description":"Total annual demand including losses and electric vehicle and heat pump demand.",
         "units":"GWh",
         "dp":2
     },
@@ -110,7 +92,7 @@
     {
         "key":"HetX_003",
         "optgroup":"Heating",
-        "title":"Total Heat Pump Demand",
+        "title":"Total demand from heat pumps",
         "combine":"sum",
         "description":"Total demand from domestic and non-domestic heat pumps.",
         "units":"GWh",
@@ -126,21 +108,48 @@
         "dp":2
     },
     {
-        "key":"EVX_002",
-        "optgroup":"Electric Vehicles",
-        "title":"Plug in hybrid",
-        "combine":"sum",
-        "description":"Number of plug in hybrids in region",
-        "units":"  ",
-        "dp":2
-    },
-    {
         "key":"EVX_003",
         "optgroup":"Electric Vehicles",
         "title":"Electric vehicle demand",
         "combine":"sum",
         "description":"Total demand for charging electric vehicles.",
         "units":"GWh",
+        "dp":2
+    },
+    {
+        "key":"ETYS_1",
+        "optgroup":"Generation",
+        "title":"Winter peak - all technologies",
+        "combine":"sum",
+        "description":"Distributed generation from all souces at winter peak",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_2",
+        "optgroup":"Generation",
+        "title":"Winter peak - wind",
+        "combine":"sum",
+        "description":"Distributed wind generation at winter peak",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_3",
+        "optgroup":"Generation",
+        "title":"Winter peak - solar",
+        "combine":"sum",
+        "description":"Distributed solar generation at winter peak",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_4",
+        "optgroup":"Demand",
+        "title":"Winter peak - all demand",
+        "combine":"sum",
+        "description":"Demand at winter peak",
+        "units":"MW",
         "dp":2
     }
 ]
