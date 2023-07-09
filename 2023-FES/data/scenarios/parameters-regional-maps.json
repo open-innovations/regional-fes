@@ -46,8 +46,8 @@
     },
     {
         "key":"FleX_001",
-        "optgroup":"Flexibility",
-        "title":"Total available battery storage",
+        "optgroup":"Generation",
+        "title":"Installed capacity - battery storage",
         "combine":"sum",
         "description":"Capacity of distribution connected battery storage available",
         "units":"MW",
@@ -55,8 +55,8 @@
     },
     {
         "key":"FleX_002",
-        "optgroup":"Flexibility",
-        "title":"Total available pumped hydro",
+        "optgroup":"Generation",
+        "title":"Installed capacity - pumped hydro",
         "combine":"sum",
         "description":"Capacity of pumped hydro systems avaialble.",
         "units":"MW",
@@ -64,7 +64,7 @@
     },
     {
         "key":"FleX_003",
-        "optgroup":"Flexibility",
+        "optgroup":"Low carbon technologies",
         "title":"Available capacity - Vehicle to grid",
         "combine":"sum",
         "description":"Total available capacity that could be provided from electric vehicles.",
@@ -73,7 +73,7 @@
     },
     {
         "key":"HetX_001",
-        "optgroup":"Heating",
+        "optgroup":"Low carbon technologies",
         "title":"Number of heat pumps",
         "combine":"sum",
         "description":"Number of heat pumps (including hybrids) installed at domestic and non-domestic customers.",
@@ -82,7 +82,7 @@
     },
     {
         "key":"HetX_002",
-        "optgroup":"Heating",
+        "optgroup":"Low carbon technologies",
         "title":"Households on district heating",
         "combine":"sum",
         "description":"Number of households that are connected to some form of district heating.",
@@ -91,7 +91,7 @@
     },
     {
         "key":"HetX_003",
-        "optgroup":"Heating",
+        "optgroup":"Low carbon technologies",
         "title":"Total demand from heat pumps",
         "combine":"sum",
         "description":"Total demand from domestic and non-domestic heat pumps.",
@@ -100,7 +100,7 @@
     },
     {
         "key":"EVX_001",
-        "optgroup":"Electric Vehicles",
+        "optgroup":"Low carbon technologies",
         "title":"Battery Electric Vehicles",
         "combine":"sum",
         "description":"Number of pure battery electric vehicles in region, not including plug in hybrids",
@@ -109,7 +109,7 @@
     },
     {
         "key":"EVX_003",
-        "optgroup":"Electric Vehicles",
+        "optgroup":"Demand",
         "title":"Electric vehicle demand",
         "combine":"sum",
         "description":"Total demand for charging electric vehicles.",
@@ -135,20 +135,56 @@
         "dp":2
     },
     {
-        "key":"ETYS_3",
-        "optgroup":"Generation",
-        "title":"Winter peak - solar",
-        "combine":"sum",
-        "description":"Distributed solar generation at winter peak",
-        "units":"MW",
-        "dp":2
-    },
-    {
         "key":"ETYS_4",
         "optgroup":"Demand",
         "title":"Winter peak - all demand",
         "combine":"sum",
-        "description":"Demand at winter peak",
+        "description":"Total demand at winter peak",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_5",
+        "optgroup":"Demand",
+        "title":"Winter peak - residential demand",
+        "combine":"sum",
+        "description":"Residential demand at winter peak",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_6",
+        "optgroup":"Generation",
+        "title":"Winter peak - storage",
+        "combine":"sum",
+        "description":"Generation from distributed storage including batteries, compressed and liquid air and pumped hydro",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_7",
+        "optgroup":"Generation",
+        "title":"Winter peak - hydro",
+        "combine":"sum",
+        "description":"Distributed wind generation at winter peak",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_8",
+        "optgroup":"Demand",
+        "title":"Winter peak - demand from Evs",
+        "combine":"sum",
+        "description":"Demand at winter peak from electric vehicle charging.",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_9",
+        "optgroup":"Demand",
+        "title":"Winter peak - demand from heat pumps \/ district heating",
+        "combine":"sum",
+        "description":"Demand at winter peak from heat pumps and district heating.",
         "units":"MW",
         "dp":2
     }
