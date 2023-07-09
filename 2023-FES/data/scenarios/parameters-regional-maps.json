@@ -2,9 +2,9 @@
     {
         "key":"Dem_BB003",
         "optgroup":"Demand",
-        "title":"Annual demand",
+        "title":"Annual demand - total",
         "combine":"sum",
-        "description":"Total annual demand including losses and electric vehicle and heat pump demand.",
+        "description":"Total annual demand including losses and demand from electric vehicles and heat pumps.",
         "units":"GWh",
         "dp":2
     },
@@ -14,6 +14,15 @@
         "title":"Installed capacity - all technologies",
         "combine":"sum",
         "description":"Total installed capacity of all distributed generation, not including storage, flexibility or interconnector flows.",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"GenX_003",
+        "optgroup":"Generation",
+        "title":"Installed capacity - high-carbon",
+        "combine":"sum",
+        "description":"Total installed capacity of all distributed non-renewable generation, for example coal and gas. ",
         "units":"MW",
         "dp":2
     },
@@ -33,6 +42,15 @@
         "combine":"sum",
         "description":"Total installed capacity of all distributed solar generation. ",
         "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"DemX_002",
+        "optgroup":"Demand",
+        "title":"Annual demand - baseline",
+        "combine":"sum",
+        "description":"Total baseline demand, not including electric vehicle or heat pumps",
+        "units":"GWh",
         "dp":2
     },
     {
@@ -83,7 +101,7 @@
     {
         "key":"HetX_003",
         "optgroup":"Demand",
-        "title":"Total demand from heat pumps",
+        "title":"Annual demand - heat pumps",
         "combine":"sum",
         "description":"Total annual demand from domestic and non-domestic heat pumps.",
         "units":"GWh",
@@ -101,9 +119,9 @@
     {
         "key":"EVX_003",
         "optgroup":"Demand",
-        "title":"Electric vehicle demand",
+        "title":"Annual demand - electric vehicles",
         "combine":"sum",
-        "description":"Total annual demand for charging electric vehicles.",
+        "description":"Total annual demand for charging battery powered electric vehicles.",
         "units":"GWh",
         "dp":2
     },
@@ -130,7 +148,7 @@
         "optgroup":"Demand",
         "title":"Winter peak - all demand",
         "combine":"sum",
-        "description":"Total electricity demand at winter peak",
+        "description":"Total electricity demand at winter peak, not including electrolysers or transmission connected industrial customers. ",
         "units":"MW",
         "dp":2
     },
@@ -144,11 +162,20 @@
         "dp":2
     },
     {
+        "key":"ETYS_5",
+        "optgroup":"Demand",
+        "title":"Winter peak - industrial and commercial demand",
+        "combine":"sum",
+        "description":"Industrial and commercial demand at winter peak.",
+        "units":"MW",
+        "dp":2
+    },
+    {
         "key":"ETYS_6",
         "optgroup":"Generation",
         "title":"Winter peak - storage",
         "combine":"sum",
-        "description":"Generation from distributed storage including batteries, compressed and liquid air storage and pumped hydro",
+        "description":"Electricity supplied from distributed storage including batteries, compressed and liquid air storage and pumped hydro",
         "units":"MW",
         "dp":2
     },
@@ -167,105 +194,6 @@
         "title":"Winter peak - demand from heat pumps \/ district heating",
         "combine":"sum",
         "description":"Demand at winter peak from heat pumps and district heating.",
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_10",
-        "optgroup":"Generation",
-        "title":"Installed capacity - wind (ETYS)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_11",
-        "optgroup":"Generation",
-        "title":"Installed capacity - solar (ETYS)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_12",
-        "optgroup":"Generation",
-        "title":"Installed capacity - Storage (ETYS)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_13",
-        "optgroup":"Generation",
-        "title":"Installed capacity - Hydro (ETYS)",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_14",
-        "optgroup":"Generation",
-        "title":"Summer PM - all technologies",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_15",
-        "optgroup":"Generation",
-        "title":"Summer PM - wind",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_16",
-        "optgroup":"Generation",
-        "title":"Summer PM - Solar",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_17",
-        "optgroup":"Generation",
-        "title":"Summer PM - Storage",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_18",
-        "optgroup":"Generation",
-        "title":"Summer PM - Hydro",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_19",
-        "optgroup":"Generation",
-        "title":"Summer PM - all demand",
-        "combine":"sum",
-        "description":null,
-        "units":"MW",
-        "dp":2
-    },
-    {
-        "key":"ETYS_20",
-        "optgroup":"Generation",
-        "title":"Installed capacity - all technologies (ETYS)",
-        "combine":"sum",
-        "description":null,
         "units":"MW",
         "dp":2
     }
