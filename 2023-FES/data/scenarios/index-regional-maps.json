@@ -109,6 +109,61 @@
                 "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_9.csv",
                 "key": "LAD22CD"
+            },
+            "ETYS_14": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_14.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_15": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_15.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_16": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_16.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_17": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_17.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_19": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_19.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_21": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_21.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_22": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_22.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_23": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_23.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_24": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_24.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_25": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_25.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_26": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_26.csv",
+                "key": "LAD22CD"
             }
         }
     },
@@ -222,6 +277,61 @@
                 "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_9.csv",
                 "key": "LAD22CD"
+            },
+            "ETYS_14": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_14.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_15": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_15.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_16": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_16.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_17": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_17.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_19": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_19.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_21": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_21.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_22": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_22.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_23": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_23.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_24": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_24.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_25": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_25.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_26": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_26.csv",
+                "key": "LAD22CD"
             }
         }
     },
@@ -229,7 +339,7 @@
         "key": "Leading the Way",
         "color": "#C2CD23",
         "css": "leading-the-way",
-        "description": "<ul><li>Reaches net zero by 2046.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
+        "description": "<ul><li>Reaches net zero by 2047.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
         "data": {
             "Dem_BB003": {
                 "dataBy": "LADmapping",
@@ -334,6 +444,61 @@
             "ETYS_9": {
                 "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_9.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_14": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_14.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_15": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_15.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_16": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_16.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_17": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_17.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_19": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_19.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_21": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_21.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_22": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_22.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_23": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_23.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_24": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_24.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_25": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_25.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_26": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_26.csv",
                 "key": "LAD22CD"
             }
         }
@@ -447,6 +612,61 @@
             "ETYS_9": {
                 "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_9.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_14": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_14.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_15": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_15.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_16": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_16.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_17": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_17.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_19": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_19.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_21": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_21.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_22": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_22.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_23": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_23.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_24": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_24.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_25": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_25.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_26": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_26.csv",
                 "key": "LAD22CD"
             }
         }

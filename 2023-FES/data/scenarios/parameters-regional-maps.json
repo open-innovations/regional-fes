@@ -175,7 +175,7 @@
         "optgroup":"Generation",
         "title":"Winter peak - storage",
         "combine":"sum",
-        "description":"Electricity supplied from distributed storage including batteries, compressed and liquid air storage and pumped hydro",
+        "description":"Electricity supplied from distributed storage including batteries, compressed and liquid air storage and pumped hydro.",
         "units":"MW",
         "dp":2
     },
@@ -194,6 +194,105 @@
         "title":"Winter peak - demand from heat pumps \/ district heating",
         "combine":"sum",
         "description":"Demand at winter peak from heat pumps and district heating.",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_14",
+        "optgroup":"Generation",
+        "title":"Summer PM - all technologies",
+        "combine":"sum",
+        "description":"Distributed generation from all sources at Summer PM. This is a period of low GB demand due to high renewable output. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_15",
+        "optgroup":"Generation",
+        "title":"Summer PM - wind",
+        "combine":"sum",
+        "description":"Distributed wind generation at Summer PM. This is a period of low GB demand due to high renewable output. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_16",
+        "optgroup":"Generation",
+        "title":"Summer PM - Solar",
+        "combine":"sum",
+        "description":"Distributed solar generation at Summer PM. This is a period of low GB demand due to high renewable output. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_17",
+        "optgroup":"Generation",
+        "title":"Summer PM - Storage",
+        "combine":"sum",
+        "description":"Electricity supplied at Summer PM from distributed storage including batteries, compressed and liquid air storage and pumped hydro. This is a period of low GB demand due to high renewable output. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_19",
+        "optgroup":"Demand",
+        "title":"Summer PM - all demand",
+        "combine":"sum",
+        "description":"Total electricity demand at Summer PM, not including electrolysers or transmission connected industrial customers. This is a period of low GB demand due to high renewable output. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_21",
+        "optgroup":"Generation",
+        "title":"Summer AM - all technologies",
+        "combine":"sum",
+        "description":"Distributed generation from all sources at Summer AM. This is a period of very low GB demand. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_22",
+        "optgroup":"Generation",
+        "title":"Summer AM - wind",
+        "combine":"sum",
+        "description":"Distributed wind generation at Summer PM. This is a period of very low GB demand. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_23",
+        "optgroup":"Generation",
+        "title":"Summer AM - Solar",
+        "combine":"sum",
+        "description":"Distributed solar generation at Summer PM. This is a period of very low GB demand. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_24",
+        "optgroup":"Generation",
+        "title":"Summer AM - Storage",
+        "combine":"sum",
+        "description":"Electricity supplied at Summer PM from distributed storage including batteries, compressed and liquid air storage and pumped hydro. This is a period of very low GB demand. ",
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_25",
+        "optgroup":"Generation",
+        "title":"Summer AM - Hydro",
+        "combine":"sum",
+        "description":null,
+        "units":"MW",
+        "dp":2
+    },
+    {
+        "key":"ETYS_26",
+        "optgroup":"Demand",
+        "title":"Summer AM - all demand",
+        "combine":"sum",
+        "description":"Total electricity demand at Summer AM, not including electrolysers or transmission connected industrial customers. This is a period of very low GB demand. ",
         "units":"MW",
         "dp":2
     }
