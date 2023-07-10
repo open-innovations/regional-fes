@@ -229,7 +229,7 @@
         "key": "Leading the Way",
         "color": "#C2CD23",
         "css": "leading-the-way",
-        "description": "<ul><li>Reaches net zero by 2047.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
+        "description": "<ul><li>Reaches net zero by 2046.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
         "data": {
             "Dem_BB003": {
                 "dataBy": "LADmapping",
