@@ -5,49 +5,109 @@
         "css": "consumer-transformation",
         "description": "<ul><li>Reaches net zero by 2050.</li><li>Electrified heating. Consumers willing to change behaviour. High energy efficiency. High demand side flexibility.</li></ul>",
         "data": {
-            "Gen_BB001": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_CT_RegionalMaps_Gen_BB001.csv",
-                "key": "LAD22CD"
-            },
-            "Gen_BB002": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_CT_RegionalMaps_Gen_BB002.csv",
-                "key": "LAD22CD"
-            },
-            "Gen_BB003": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_CT_RegionalMaps_Gen_BB003.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB001a": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_CT_RegionalMaps_Dem_BB001a.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB002a": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_CT_RegionalMaps_Dem_BB002a.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB002b": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_CT_RegionalMaps_Dem_BB002b.csv",
-                "key": "LAD22CD"
-            },
             "Dem_BB003": {
                 "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_CT_RegionalMaps_Dem_BB003.csv",
                 "key": "LAD22CD"
             },
-            "Lct_BB001": {
+            "GenX_001": {
                 "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_CT_RegionalMaps_Lct_BB001.csv",
+                "file": "localauthorities/FES23_CT_RegionalMaps_GenX_001.csv",
                 "key": "LAD22CD"
             },
-            "Lct_BB002": {
+            "GenX_003": {
                 "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_CT_RegionalMaps_Lct_BB002.csv",
+                "file": "localauthorities/FES23_CT_RegionalMaps_GenX_003.csv",
+                "key": "LAD22CD"
+            },
+            "GenX_004": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_GenX_004.csv",
+                "key": "LAD22CD"
+            },
+            "GenX_005": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_GenX_005.csv",
+                "key": "LAD22CD"
+            },
+            "DemX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_DemX_002.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_FleX_001.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_FleX_002.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_FleX_003.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_HetX_001.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_HetX_002.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_HetX_003.csv",
+                "key": "LAD22CD"
+            },
+            "EVX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_EVX_001.csv",
+                "key": "LAD22CD"
+            },
+            "EVX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_EVX_003.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_1": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_1.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_2": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_2.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_4": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_4.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_5": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_5.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_6": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_6.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_8": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_8.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_9": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_CT_RegionalMaps_ETYS_9.csv",
                 "key": "LAD22CD"
             }
         }
@@ -58,49 +118,109 @@
         "css": "system-transformation",
         "description": "<ul><li>Reaches net zero by 2050.</li><li>Hydrogen for heating. Consumers less inclined to change behaviour. Lower energy efficiency. Supply side flexibility.</li></ul>",
         "data": {
-            "Gen_BB001": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_ST_RegionalMaps_Gen_BB001.csv",
-                "key": "LAD22CD"
-            },
-            "Gen_BB002": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_ST_RegionalMaps_Gen_BB002.csv",
-                "key": "LAD22CD"
-            },
-            "Gen_BB003": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_ST_RegionalMaps_Gen_BB003.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB001a": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_ST_RegionalMaps_Dem_BB001a.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB002a": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_ST_RegionalMaps_Dem_BB002a.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB002b": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_ST_RegionalMaps_Dem_BB002b.csv",
-                "key": "LAD22CD"
-            },
             "Dem_BB003": {
                 "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_ST_RegionalMaps_Dem_BB003.csv",
                 "key": "LAD22CD"
             },
-            "Lct_BB001": {
+            "GenX_001": {
                 "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_ST_RegionalMaps_Lct_BB001.csv",
+                "file": "localauthorities/FES23_ST_RegionalMaps_GenX_001.csv",
                 "key": "LAD22CD"
             },
-            "Lct_BB002": {
+            "GenX_003": {
                 "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_ST_RegionalMaps_Lct_BB002.csv",
+                "file": "localauthorities/FES23_ST_RegionalMaps_GenX_003.csv",
+                "key": "LAD22CD"
+            },
+            "GenX_004": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_GenX_004.csv",
+                "key": "LAD22CD"
+            },
+            "GenX_005": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_GenX_005.csv",
+                "key": "LAD22CD"
+            },
+            "DemX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_DemX_002.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_FleX_001.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_FleX_002.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_FleX_003.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_HetX_001.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_HetX_002.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_HetX_003.csv",
+                "key": "LAD22CD"
+            },
+            "EVX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_EVX_001.csv",
+                "key": "LAD22CD"
+            },
+            "EVX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_EVX_003.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_1": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_1.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_2": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_2.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_4": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_4.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_5": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_5.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_6": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_6.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_8": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_8.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_9": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_ST_RegionalMaps_ETYS_9.csv",
                 "key": "LAD22CD"
             }
         }
@@ -109,51 +229,111 @@
         "key": "Leading the Way",
         "color": "#C2CD23",
         "css": "leading-the-way",
-        "description": "<ul><li>Reaches net zero by 2047.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
+        "description": "<ul><li>Reaches net zero by 2046.</li><li>Significant lifestyle change. Mixture of hydrogen and electrification for heating.</li></ul>",
         "data": {
-            "Gen_BB001": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_LW_RegionalMaps_Gen_BB001.csv",
-                "key": "LAD22CD"
-            },
-            "Gen_BB002": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_LW_RegionalMaps_Gen_BB002.csv",
-                "key": "LAD22CD"
-            },
-            "Gen_BB003": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_LW_RegionalMaps_Gen_BB003.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB001a": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_LW_RegionalMaps_Dem_BB001a.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB002a": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_LW_RegionalMaps_Dem_BB002a.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB002b": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_LW_RegionalMaps_Dem_BB002b.csv",
-                "key": "LAD22CD"
-            },
             "Dem_BB003": {
                 "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_LW_RegionalMaps_Dem_BB003.csv",
                 "key": "LAD22CD"
             },
-            "Lct_BB001": {
+            "GenX_001": {
                 "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_LW_RegionalMaps_Lct_BB001.csv",
+                "file": "localauthorities/FES23_LW_RegionalMaps_GenX_001.csv",
                 "key": "LAD22CD"
             },
-            "Lct_BB002": {
+            "GenX_003": {
                 "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_LW_RegionalMaps_Lct_BB002.csv",
+                "file": "localauthorities/FES23_LW_RegionalMaps_GenX_003.csv",
+                "key": "LAD22CD"
+            },
+            "GenX_004": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_GenX_004.csv",
+                "key": "LAD22CD"
+            },
+            "GenX_005": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_GenX_005.csv",
+                "key": "LAD22CD"
+            },
+            "DemX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_DemX_002.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_FleX_001.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_FleX_002.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_FleX_003.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_HetX_001.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_HetX_002.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_HetX_003.csv",
+                "key": "LAD22CD"
+            },
+            "EVX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_EVX_001.csv",
+                "key": "LAD22CD"
+            },
+            "EVX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_EVX_003.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_1": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_1.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_2": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_2.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_4": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_4.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_5": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_5.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_6": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_6.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_8": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_8.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_9": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_LW_RegionalMaps_ETYS_9.csv",
                 "key": "LAD22CD"
             }
         }
@@ -164,49 +344,109 @@
         "css": "falling-short",
         "description": "<ul><li>Does not reach net zero by 2050.</li><li>Minimal behaviour change. Decarbonisation in power and transport but not heat.</li></ul>",
         "data": {
-            "Gen_BB001": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_FS_RegionalMaps_Gen_BB001.csv",
-                "key": "LAD22CD"
-            },
-            "Gen_BB002": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_FS_RegionalMaps_Gen_BB002.csv",
-                "key": "LAD22CD"
-            },
-            "Gen_BB003": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_FS_RegionalMaps_Gen_BB003.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB001a": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_FS_RegionalMaps_Dem_BB001a.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB002a": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_FS_RegionalMaps_Dem_BB002a.csv",
-                "key": "LAD22CD"
-            },
-            "Dem_BB002b": {
-                "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_FS_RegionalMaps_Dem_BB002b.csv",
-                "key": "LAD22CD"
-            },
             "Dem_BB003": {
                 "dataBy": "LADmapping",
                 "file": "localauthorities/FES23_FS_RegionalMaps_Dem_BB003.csv",
                 "key": "LAD22CD"
             },
-            "Lct_BB001": {
+            "GenX_001": {
                 "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_FS_RegionalMaps_Lct_BB001.csv",
+                "file": "localauthorities/FES23_FS_RegionalMaps_GenX_001.csv",
                 "key": "LAD22CD"
             },
-            "Lct_BB002": {
+            "GenX_003": {
                 "dataBy": "LADmapping",
-                "file": "localauthorities/FES23_FS_RegionalMaps_Lct_BB002.csv",
+                "file": "localauthorities/FES23_FS_RegionalMaps_GenX_003.csv",
+                "key": "LAD22CD"
+            },
+            "GenX_004": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_GenX_004.csv",
+                "key": "LAD22CD"
+            },
+            "GenX_005": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_GenX_005.csv",
+                "key": "LAD22CD"
+            },
+            "DemX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_DemX_002.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_FleX_001.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_FleX_002.csv",
+                "key": "LAD22CD"
+            },
+            "FleX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_FleX_003.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_HetX_001.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_002": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_HetX_002.csv",
+                "key": "LAD22CD"
+            },
+            "HetX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_HetX_003.csv",
+                "key": "LAD22CD"
+            },
+            "EVX_001": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_EVX_001.csv",
+                "key": "LAD22CD"
+            },
+            "EVX_003": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_EVX_003.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_1": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_1.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_2": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_2.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_4": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_4.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_5": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_5.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_6": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_6.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_8": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_8.csv",
+                "key": "LAD22CD"
+            },
+            "ETYS_9": {
+                "dataBy": "LADmapping",
+                "file": "localauthorities/FES23_FS_RegionalMaps_ETYS_9.csv",
                 "key": "LAD22CD"
             }
         }
